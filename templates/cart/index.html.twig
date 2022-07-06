@@ -10,6 +10,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="table-responsive shop_cart_table">
+                <!-- tableau avec le contenu du panier -->
                 	<table class="table">
                     	<thead>
                         	<tr>
@@ -38,7 +39,7 @@
                         {% endfor %}                         
                         </tbody>
                         <tfoot>
-                          <tr>
+                            <tr>
                             	<th class="product-thumbnail">&nbsp;</th>
                                 <th class="product-name">Product</th>
                                 <th class="product-price">Price</th>
@@ -48,6 +49,7 @@
                             </tr>
                         </tfoot>
                     </table>
+                <!-- -->
                 </div>
             </div>
         </div>
@@ -68,6 +70,7 @@
                     <div class="heading_s1 mb-3">
                         <h6>Cart Totals</h6>
                     </div>
+                    <!-- tableau recapitulatif montants et taxes -->
                     <div class="table-responsive">
                         <table class="table">
                             <tbody>
@@ -86,11 +89,11 @@
                             </tbody>
                         </table>
                     </div>
-                    <a href="#" class="btn btn-fill-out">Proceed To CheckOut</a>
+                    <!-- -->
+                    <a href="#" class="btn btn-fill-out">Procéder au paiement</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 {% endblock %}

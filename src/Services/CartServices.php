@@ -87,26 +87,29 @@ class CartServices {
         $cart = $this->getCart();
 
         $fullCart = [];
-        $quantity_cart = 0;
-        $subTotal = 0;
+        $quantity_cart = 0;     //la quantité d'articles du panier
+        $subTotal = 0;          // montant total du panier
 
         foreach ($cart as $id => $quantity){
             $product = $this->productRepository->find($id);
 
             if($product){
                 //produit récupéré avec succès
-                $fullCart['products'][] =
+                $fullCart['products'] [] =
                 [
                     'quantity' => $quantity,
                     'product' => $product,
                 ];
+
+                //dd($fullCart);
                 $quantity_cart += $quantity;
-                $subTotal += $quantity * $product->getPrice()/100;
+                $subTotal += $quantity * $product->getPrice()/100;      //on incremente le sous total avec le prix du produit x sa quantité /100
             }else{
                 //id incorrect
                 $this->deleteFromCart($id);
             }
         }
+        //clé data valeur un tableau avec quantite, sous total ht , taxe et sous total ttc
         $fullCart['data'] = [
             "quantity_cart" => $quantity_cart,
             "subTotalHT" => $subTotal,
@@ -114,6 +117,7 @@ class CartServices {
             "subTotalTTC" => round(($subTotal + ($subTotal * $this->tva)), 2)
         ];
         return $fullCart;
+        //dd($fullCart);
     }
 }
 
