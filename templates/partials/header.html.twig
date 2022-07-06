@@ -91,34 +91,39 @@
                             </form>
                         </div><div class="search_overlay"></div>
                     </li>
-                    <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="#" data-toggle="dropdown"><i class="linearicons-cart"></i><span class="cart_count">
-                        {% set quantity = 0 %}
-                        {% for element in app.session.get('cartData') %}
 
-                        {% endfor %}
-                        {{ quantity }}
+                    <!--panier-->
+                    <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="#" data-toggle="dropdown"><i class="linearicons-cart"></i><span class="cart_count">
+
+                        {% if app.session.get('cart') %}
+                            {{ app.session.get('cartData').data.quantity_cart }}
+                        {% else %}
+                            0
+                        {% endif %}
+
                     </span></a>
                         <div class="cart_box dropdown-menu dropdown-menu-right">
+                           <!-- liste d'articles du panier-->
                             <ul class="cart_list">
-                            {% if  app.session.get('cartData')%}
-                                {% for element in app.session.get('cartData') %}
+                            <!-- si il y a quelque chose dans le panier en session affiche le panier-->
+                            {% if  app.session.get('cart')%}
+                                {% for element in app.session.get('cartData').products %}
                                     <li>
-                                        <a href="{{path('cart_delete_all', {'id':element.product.id})}}" class="item_remove"><i class="ion-close"></i></a>
+                                        <a href="{{ path('cart_delete_all' , {'id': element.product.id})}}" class="item_remove"><i class="ion-close"></i></a>
                                         <a href="#"><img src="/assets/uploads/products/{{element.product.picture1}}" alt="{{element.product.name}}">{{element.product.name}}</a>
-                                        <span class="cart_quantity"> {{element.quantity}} <span class="cart_amount"> <span class="price_symbole">$</span></span>{{element.product.price/100}}</span>
-                                    </li> 
-                                {% endfor %} 
-                            {% else %}
-                                <li>Votre panier est vide</li>
-                            {% endif %}
-                             
-                            </ul>
-                            {% if app.session.get('cartData') %}
-                                <div class="cart_footer">
-                                    <p class="cart_total"><strong>Sous total HT:</strong> <span class="cart_price"> <span class="price_symbole">$</span></span>{{ subTotal }}</p>
-                                    <p class="cart_buttons"><a href="{{ path('cart')}}" class="btn btn-fill-line rounded-0 view-cart">Voir le panier</a><a href="#" class="btn btn-fill-out rounded-0 checkout">Checkout</a></p>
+                                        <span class="cart_quantity"> {{element.quantity}} <span class="cart_amount"> <span class="price_symbole">${{element.product.price/100}}</span></span></span>
+                                    </li>
+                                {% endfor %}
+
+                                 <div class="cart_footer">
+                                    <p class="cart_total"><strong>Sous total TTC:</strong> <span class="cart_price"> <span class="price_symbole">$</span></span>{{ app.session.get('cartData').data.subTotalTTC }}</p>
+                                    <p class="cart_buttons"><a href="{{ path('cart') }}" class="btn btn-fill-line rounded-0 view-cart">Voir le panier</a><a href="#" class="btn btn-fill-out rounded-0 checkout">Checkout</a></p>
                                 </div>
+
+                            {% else %}
+                                <li> Votre panier est vide </li>
                             {% endif %}
+                            </ul>
                         </div>
                     </li>
                 </ul>
@@ -126,3 +131,6 @@
         </div>
     </div>
 </header>
+
+
+
