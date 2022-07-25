@@ -14,13 +14,13 @@ class CheckoutType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        //$user = $options['user'];
+        $user = $options['user'];
 
         $builder
             ->add('address', EntityType::class,[
                 'class' => Address::class,              //renseigner l'adresse de livraison
                 'required' => true,                     // adresse obligatoire oui
-                'choices' => User::class,     //possibilité de choisir l'adresse recup adresse //'choices' => $user->getAddresses()
+                'choices' => $user->getAddresses(),     //possibilité de choisir l'adresse recup adresse
                 'multiple' =>false,     //choix multiple non
                 'expended' =>true,      //checkbox oui
             ])
