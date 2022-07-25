@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Services\CartServices;
 use App\Entity\Address;
 use App\Form\AddressType;
 use App\Repository\AddressRepository;
@@ -13,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/address')]
 class AddressController extends AbstractController
 {
-    #[Route('/', name: 'app_address_index', methods: ['GET'])]
+    #[Route('/', name: 'address_index', methods: ['GET'])]
     public function index(AddressRepository $addressRepository): Response
     {
         return $this->render('address/index.html.twig', [
@@ -21,8 +22,8 @@ class AddressController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_address_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, AddressRepository $addressRepository): Response
+    #[Route('/new', name: 'address_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, AddressRepository $addressRepository, CartServices $cartServices): Response
     {
         $address = new Address();
         $form = $this->createForm(AddressType::class, $address);
@@ -33,13 +34,17 @@ class AddressController extends AbstractController
             $address->setUser($user);
             $addressRepository->add($address, true);
 
-            $this->addFlash('address_message', 'Your address have been saved');
+            //est ce que son panier contient des choses alors on renvoie sur checkout
+            if($cartServices->getFullCart()){
+                return $this->redirectToRoute('checkout');
+            }
+            $this->addFlash('address_message', 'Votre adresse est enregistrée');
             return $this->redirectToRoute('account');
         }
 
         return $this->renderForm('address/new.html.twig', [
             'address' => $address,
-            'form' => $form,
+            'form' => $form->createView(), //createView a voir si ca fonctionne
         ]);
     }
 

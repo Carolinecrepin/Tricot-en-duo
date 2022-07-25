@@ -23,10 +23,9 @@
         {% endblock %}
     </head>
     <body>
-        {% include "partials/header.html.twig" %}
+        {% include "components/header.html.twig" %}
         {% block body %}{% endblock %}
 
-        {% include "partials/footer.html.twig" %}
         {% block javascript %}{% endblock %}
         <script src="/assets/js/jquery-1.12.4.min.js"></script> 
         <script src="/assets/js/popper.min.js"></script>
@@ -43,4 +42,7 @@
         <script src="/assets/js/jquery.elevatezoom.js"></script>
         <script src="/assets/js/scripts.js"></script>
     </body>
+    <footer>
+        {% include "components/footer.html.twig" %}
+    </footer>
 </html>

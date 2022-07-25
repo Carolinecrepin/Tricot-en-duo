@@ -3,7 +3,6 @@
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
-    {{ include("partials/title_section.html.twig", { 'name':'Register'})}}
     <div class="login_register_wrap section">
     <div class="container">
         <div class="row justify-content-center">
@@ -18,6 +17,7 @@
                                 <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
                             {% endfor %}
                         </div>
+                        <!-- début formulaire d'inscription -->
                         {{ form_start(registrationForm) }}
                             <div class="form-group">
                                 {{ form_row(registrationForm.username, { label: 'Nom d\'utilisateur' }) }}
@@ -30,7 +30,7 @@
                                 {{ form_row(registrationForm.email) }}
                             </div>
                             <div class="form-group">
-                                {{ form_row(registrationForm.plainPassword, { label: 'Password' }) }}
+                                {{ form_row(registrationForm.plainPassword, { label: 'Mot de passe' }) }}
                             </div>
                             <div class="login_footer form-group">
                                         {{ form_row(registrationForm.agreeTerms, { label: 'accepter les conditions' }) }}
@@ -40,6 +40,7 @@
                                 <button type="submit" class="btn btn-fill-out btn-block" name="register">S'inscrire</button>
                             </div>
                         {{ form_end(registrationForm) }}
+                        <!-- fin formulaire d'inscription -->
                         <div class="different_login">
                             <span> ou</span>
                         </div>
@@ -54,8 +55,4 @@
         </div>
     </div>
 </div>
-    <!-- separation -->
-    
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
 {% endblock %}

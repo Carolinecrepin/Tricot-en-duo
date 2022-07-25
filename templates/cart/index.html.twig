@@ -3,7 +3,6 @@
 {% block title %}Cart tricot en duo!{% endblock %}
 
 {% block body %}
-{{ include("partials/title_section.html.twig", { 'name':'Mon panier'})}}
 
 <div class="section">
 	<div class="container">
@@ -90,7 +89,7 @@
                         </table>
                     </div>
                     <!-- -->
-                    <a href="#" class="btn btn-fill-out">Procéder au paiement</a>
+                    <a href="{{ path('checkout')}}" class="btn btn-fill-out">Procéder au paiement</a>
                 </div>
             </div>
         </div>

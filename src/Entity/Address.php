@@ -156,6 +156,16 @@ class Address
 
     public function __toString()
     {
-        return $this;
+        //afficher l'adresse sous la forme de chaine de caractères
+        $result = $this->fullName."<br>";
+        if($this->getCompany()){
+            $result .= $this->company."<br>";
+        }
+        $result .= $this->address."<br>";
+        $result .= $this->complement."<br>";
+        $result .= $this->codePostal."-".$this->city."<br>";
+        $result .= $this->country."<br>";
+
+        return $result;
     }
 }
