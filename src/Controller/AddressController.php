@@ -46,6 +46,7 @@ class AddressController extends AbstractController
             'address' => $address,
             'form' => $form,
         ]);
+
     }
 
     #[Route('/{id}/edit', name: 'app_address_edit', methods: ['GET', 'POST'])]
