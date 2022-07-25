@@ -23,14 +23,15 @@ class CheckoutController extends AbstractController
             return $this->redirectToRoute("home");
         }
         //il y a un panier on va chercher si il y a une adresse de renseignée  s'il n'y en a pas on le redirige sur la page adresse new
-        if($user->getAddresses()->getValues()){
+        if(!$user->getAddresses()->getValues()){
+            $this->addFlash('checkout_message', 'Merci de renseigner une adresse avant de continuer');
             return $this->redirectToRoute("address_new");
         }
         //mise en place du formulaire
-        $form = $this->createForm(CheckoutType::class,  ['user'=>$user]);          //null,
+        $form = $this->createForm(CheckoutType::class,['user'=>$user]);          //null,
         
         $form->handleRequest($request);
-        dd($form);
+        //dd($form);
 
         //est ce que le formulaire est soumis et valide
 

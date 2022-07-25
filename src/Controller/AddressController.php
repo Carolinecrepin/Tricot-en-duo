@@ -44,7 +44,7 @@ class AddressController extends AbstractController
 
         return $this->renderForm('address/new.html.twig', [
             'address' => $address,
-            'form' => $form->createView(), //createView a voir si ca fonctionne
+            'form' => $form,
         ]);
     }
 

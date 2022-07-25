@@ -157,14 +157,14 @@ class Address
     public function __toString()
     {
         //afficher l'adresse sous la forme de chaine de caractères
-        $result = $this->fullName."<br>";
+        $result = $this->fullname."[spr]";
         if($this->getCompany()){
-            $result .= $this->company."<br>";
+            $result .= $this->company."[spr]";
         }
-        $result .= $this->address."<br>";
-        $result .= $this->complement."<br>";
-        $result .= $this->codePostal."-".$this->city."<br>";
-        $result .= $this->country."<br>";
+        $result .= $this->address."[spr]";
+        $result .= $this->complement."[spr]";
+        $result .= $this->codePostal."-".$this->city."[spr]";
+        $result .= $this->country."[spr]";
 
         return $result;
     }

@@ -5,25 +5,26 @@
 {% block body %}
 <div class="section">
 	<div class="container">
+        {{ form_start(checkout)}}
         <div class="row">
         	<div class="col-md-6">
                 <div class="heading_s1">
-                        <h4>Your delivery Address</h4>
+                        <h4>Votre adresse de livraison</h4>
                         <div class="content">
-
+                            {{ form_widget(checkout.address) | replace({'[spr]' : '<br>)'}) | raw}}
                         </div>
+                        <a href="{{ path('address_new')}}" class="btn btn-fill-out btn-block mt-1"> Ajouter une nouvelle adresse</a>
                 </div>
                 <div class="heading_s1">
-                    <h4>Your carrier</h4>
+                    <h4>Votre transporteur</h4>
                     <div class="content">
-
-
+                        {{ form_widget(checkout.carrier) | replace({'[spr]' : '<br>)'}) | raw}}
                     </div>
                 </div>
                 <div class="heading_s1">
-                    <h4>Additional information</h4>
+                    <h4>Informations complémentaires</h4>
                     <div class="form-group mb-0">
-                        <textarea name="name" rows="8" cols="50"></textarea>
+                        {{ form_widget(checkout.informations) | replace({'[spr]' : '<br>)'}) | raw}}
                     </div>
                 </div>
           </div>
@@ -36,6 +37,7 @@
                     <div class="table-responsive order_table">
                         <table class="table">
                             <thead>
+                            {% for element in array %}
                                 <tr>
                                     <th>Product</th>
                                     <th>Total</th>
@@ -77,6 +79,7 @@
                 </div>
           </div>
         </div>
+        {{ form_end(checkout)}}
     </div>
 </div>
 {% endblock %}
