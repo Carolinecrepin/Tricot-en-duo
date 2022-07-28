@@ -21,12 +21,15 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+        {% block scriptStripe %}
+            <script src="https://js.stripe.com/v3/"></script>
+        {% endblock %}
     </head>
     <body>
         {% include "components/header.html.twig" %}
         {% block body %}{% endblock %}
 
-        {% block javascript %}{% endblock %}
+        
         <script src="/assets/js/jquery-1.12.4.min.js"></script> 
         <script src="/assets/js/popper.min.js"></script>
         <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
@@ -41,8 +44,9 @@
         <script src="/assets/js/slick.min.js"></script>
         <script src="/assets/js/jquery.elevatezoom.js"></script>
         <script src="/assets/js/scripts.js"></script>
+        {% block javascript %}{% endblock %}
     </body>
     <footer>
-        {% include "components/footer.html.twig" %}
+        
     </footer>
 </html>
