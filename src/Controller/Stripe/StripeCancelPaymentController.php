@@ -11,7 +11,7 @@ class StripeCancelPaymentController extends AbstractController
     #[Route('/stripe-payment-cancel', name: 'stripe_payment_cancel')]
     public function index(): Response
     {
-        return $this->render('stripe/stripe_cancel_payment/index.html.twig', [
+        return $this->render('stripe/stripe_cancel_payment.html.twig', [
             'controller_name' => 'StripeCancelPaymentController',
         ]);
     }

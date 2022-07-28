@@ -11,7 +11,7 @@ class StripeSuccessPaymentController extends AbstractController
     #[Route('/stripe-payment-success', name: 'stripe_payment_success')]
     public function index(): Response
     {
-        return $this->render('stripe/stripe_success_payment/index.html.twig', [
+        return $this->render('stripe/stripe_success_payment.html.twig', [
             'controller_name' => 'StripeSuccessPaymentController',
         ]);
     }
