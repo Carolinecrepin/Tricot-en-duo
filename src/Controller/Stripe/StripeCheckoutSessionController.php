@@ -43,6 +43,6 @@ class StripeCheckoutSessionController extends AbstractController
             
             ]);
 
-        return $this->json([]);
+        return $this->json(['id' => $checkout_session->id]);
     }
 }
