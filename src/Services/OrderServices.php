@@ -29,9 +29,9 @@ class OrderServices{
               ->setDeliveryAddress($cart->getDeliveryAddress())
               ->setMoreInformations($cart->getMoreInformations())
               ->setQuantity($cart->getQuantity())
-              ->setSubtotalHT($cart->getSubtotalHT())
-              ->setTaxe($cart->getTaxe())
-              ->setSubtotalTTC($cart->getSubtotalTTC())
+              ->setSubtotalHT($cart->getSubtotalHT()/100)
+              ->setTaxe($cart->getTaxe()/100)
+              ->setSubtotalTTC($cart->getSubtotalTTC()/100)
               ->setUser($cart->getUser())
               ->setCreatedAt($cart->getCreatedAt());
         $this->manager->persist($order);
@@ -95,7 +95,7 @@ class OrderServices{
             $line_items[] = [
                 'price_data' => [
                     'currency' => 'eur',
-                    'unit_amount' => $cart->getTaxe()*100,
+                    'unit_amount' => $cart->getTaxe(),
                     'product_data' => [
                         'name' => 'TVA (20%)',
                         'images' => [$_ENV['YOUR_DOMAIN'] .'uploads/products/'. $product->getPicture1()],
