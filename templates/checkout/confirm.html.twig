@@ -97,7 +97,7 @@
         var checkoutButton = document.getElementById("checkout-button");
 
         checkoutButton.addEventListener("click", function() {
-            fetch('/create-checkout-session', {
+            fetch('/create-checkout-session/{{ reference }}', {
                 method: "POST",
             })
                 .then(function (response) {

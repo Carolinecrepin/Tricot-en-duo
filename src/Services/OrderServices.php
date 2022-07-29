@@ -5,14 +5,17 @@ use App\Entity\OrderDetails;
 use App\Entity\Order;
 use App\Entity\CartDetails;
 use App\Entity\Cart;
+use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
 class OrderServices{
     private $manager;
+    private $productRepository;
 
-    public function __construct(EntityManagerInterface $manager)
+    public function __construct(EntityManagerInterface $manager,ProductRepository $productRepository)
     {
         $this->manager = $manager;
+        $this-> productRepository = $productRepository;
     }
 
     //methode pour creer une commande 
@@ -51,6 +54,57 @@ class OrderServices{
 
         return $order;
 
+    }
+
+    public function getLineItems($cart)
+    {
+        $cartDetails = $cart->getCartDetails();     //on recupère de le detail du panier
+
+        $line_items = [];
+        foreach ($cartDetails as $details) {
+            $product = $this->productRepository->findOneByName($details->getProductName());      //permet de recupérer le produit par son nom
+        
+            //recupère le detail du panier (produits)
+            $line_items[] = [
+                'price_data' => [
+                    'currency' => 'eur',
+                    'unit_amount' => $product->getPrice(),
+                    'product_data' => [
+                        'name' => $product->getName(),
+                        'images' => [$_ENV['YOUR_DOMAIN'] .'uploads/products/'],
+                    ],
+                ],
+                'quantity' => $details->getQuantity(),
+            ];
+        }
+
+        //ajouter le données concernant la taxe et transporteur
+        //Carrier
+            $line_items[] = [
+                'price_data' => [
+                    'currency' => 'eur',
+                    'unit_amount' => $cart->getCarrierPrice(),
+                    'product_data' => [
+                        'name' => 'Livraison (' . $cart->getCarrierName() . ')',
+                        'images' => [$_ENV['YOUR_DOMAIN'] .'uploads/products/'],
+                    ],
+                ],
+                'quantity' => 1,
+            ];
+        //Taxe
+            $line_items[] = [
+                'price_data' => [
+                    'currency' => 'eur',
+                    'unit_amount' => $cart->getTaxe()*100,
+                    'product_data' => [
+                        'name' => 'TVA (20%)',
+                        'images' => [$_ENV['YOUR_DOMAIN'] .'uploads/products/'. $product->getPicture1()],
+                    ],
+                ],
+                'quantity' => 1,
+            ];
+
+            return $line_items;
     }
 
     //methode pour sauvegarder un panier en bdd
