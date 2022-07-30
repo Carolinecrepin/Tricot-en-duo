@@ -4,8 +4,6 @@
 
 {% block body %}
 
-{{ include("partials/title_section.html.twig", { 'name':'Product_details'})}}
-
 <div class="section">
 	<div class="container">
 		<div class="row">
@@ -195,7 +193,7 @@
                     {% for category in product.category %}
                         {% for productRelated in category.products %}
                             {% if product is not same as (productRelated)%}
-                                {{ include('partials/product_item.html.twig', {'product': productRelated})}}
+                                {{ include('components/product_item.html.twig', {'product': productRelated})}}
                             {% endif %}
                         {% endfor %}
                     {% endfor %}

@@ -3,8 +3,6 @@
 {% block title %}New Address{% endblock %}
 
 {% block body %}
-
-    {{ include("partials/title_section.html.twig", {'name':'Add Address'}) }}
     <div class="login_register_wrap section">
         <div class="container">
             <div class="row justify-content-center">
@@ -13,6 +11,14 @@
                         <div class="padding_eight_all bg-white">
                             <div class="heading_s1">
                                 <h3>Add Address</h3>
+                            </div>
+                            <div class="message-flash">
+                                {% for message in app.flashes('checkout_message')%}
+                                    <div class=" alert alert-succes alert-dismissible fade show" role="alert"> {{ message }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                {% endfor %}
                             </div>
                             <div class="content">
                                 {{ include('address/_form.html.twig') }}

@@ -4,8 +4,6 @@
 
 {% block body %}
 
-{{ include("partials/title_section.html.twig", { 'name':'Accueil'})}}
-
 <div class="container">
     <div class="section small_pt pb_70">
 	<div class="container">
@@ -55,7 +53,7 @@
                 	<div class="tab-pane fade show active" id="arrival" role="tabpanel" aria-labelledby="arrival-tab">
                         <div class="row shop_container">
                             {% for  product in productNewArrival %}
-                                {{include('partials/product.html.twig', {'product': product})}}
+                                {{include('components/product.html.twig', {'product': product})}}
                             {% endfor %}
                         </div>
                     </div>

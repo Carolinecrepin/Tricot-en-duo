@@ -30,7 +30,7 @@ a {
 	transition: all .3s ease-in-out;
 }
 a:hover {
-	color: #E439A1;
+	color: #ff0000;
 	text-decoration: none;
 }
 a:focus {
@@ -151,7 +151,7 @@ button:focus {
 }
 .btn-fill-out {
 	background-color: transparent;
-	border: 1px solid #E439A1;
+	border: 1px solid #D3BBB4;
 	color: #fff;
 	position: relative;
 	overflow: hidden;
@@ -164,7 +164,7 @@ button:focus {
 	left: 0;
 	top: 0;
 	bottom: 0;
-	background-color: #E439A1;
+	background-color: #D3BBB4;
 	z-index: -1;
 	transition: all 0.3s ease-in-out;
 	width: 51%;
@@ -178,7 +178,7 @@ button:focus {
 	width: 0;
 }
 .btn-fill-out:hover {
-	color: #E439A1 !important;
+	color: #D3BBB4 !important;
 }
 .btn-fill-line {
 	background-color: transparent;
@@ -212,8 +212,8 @@ button:focus {
 	color: #333 !important;
 }
 .btn-border-fill {
-	border: 1px solid #E439A1;
-	color: #E439A1;
+	border: 1px solid #D3BBB4;
+	color: #D3BBB4;
 	position: relative;
 	overflow: hidden;
 	z-index: 1;
@@ -225,7 +225,7 @@ button:focus {
 	left: 0;
 	top: 0;
 	bottom: 0;
-	background-color: #E439A1;
+	background-color: #D3BBB4;
 	z-index: -1;
 	transition: all 0.3s ease-in-out;
 	width: 0;
@@ -943,7 +943,7 @@ button:focus {
 	width: 15px;
 	height: 15px;
 	border-radius: 50%;
-	background: #E439A1;
+	background: #D3BBB4;
 	-webkit-animation: ball-pulse-sync .6s 0s infinite ease-in-out;
 	animation: ball-pulse-sync .6s 0s infinite ease-in-out;
 }
@@ -1022,7 +1022,7 @@ button:focus {
 	transition: all 0.5s ease 0s;
 }
 .header_wrap:not([class*="bg_"]):not([class*="bg-"]) {
-	background-color: #fff;
+	background-color: #D3BBB4;
 }
 .header_wrap:not([class*="bg_"]):not([class*="bg-"]).transparent_header {
 	background-color: transparent;
@@ -1458,7 +1458,7 @@ button:focus {
 	top: -3px;
 	left: 0;
 	font-size: 11px;
-	background-color: #E439A1;
+	background-color: #D34747;
 	border-radius: 50px;
 	height: 16px;
 	line-height: 16px;
@@ -1562,7 +1562,7 @@ button:focus {
 	padding: 8px 20px !important;
 }
 .top-header {
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid #D3BBB4;
 }
 .top-header.light_skin {
 	border-color: rgba(255,255,255,0.2);
@@ -4897,7 +4897,7 @@ footer .widget_title {
 	padding: 15px;
 }
 .price {
-	color: #E439A1;
+	color: #b22929;
 	font-weight: 600;
 }
 .product_price del {
@@ -6350,7 +6350,7 @@ footer .widget_recent_post .post_img img {
 }
 .tab-style1 .nav-tabs li.nav-item a.active, .tab-style1 .nav-tabs li.nav-item a.active:hover,
 .tab-style2 .nav-tabs li.nav-item a.active, .tab-style2 .nav-tabs li.nav-item a.active:hover {
-	color: #E439A1;
+	color: #D34747;
 }
 .tab-style2 .nav-tabs li.nav-item a {
 	padding: 0px 15px;
