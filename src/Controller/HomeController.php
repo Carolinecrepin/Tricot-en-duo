@@ -46,4 +46,14 @@ class HomeController extends AbstractController
             'product' => $product
         ]);
     }
+
+    #[Route('/shop', name: 'shop')]
+    public function shop(ProductRepository $productRepository): Response
+    {
+        $products = $productRepository->findAll();
+
+        return $this->render('home/shop.html.twig', [
+            'products' => $products,
+        ]);
+    }
 }
