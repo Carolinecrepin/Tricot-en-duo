@@ -13,6 +13,7 @@ use App\Entity\Product;
 use App\Entity\Carrier;
 use App\Entity\Order;
 use App\Entity\Cart;
+use App\Entity\HomeSlider;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -39,5 +40,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Cart', 'fas fa-boxes', Cart::class);
         yield MenuItem::linkToCrud('Categories', 'fas fa-list', Categories::class);
         yield MenuItem::linkToCrud('Carrier', 'fas fa-truck', Carrier::class);
+        yield MenuItem::linkToCrud('Home Slider', 'fas fa-images', HomeSlider::class);
     }
 }

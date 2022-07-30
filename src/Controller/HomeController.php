@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\HomeSliderRepository;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,9 +14,13 @@ use App\Entity\Product;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'home')]
-    public function index(ProductRepository $productRepository): Response
+    public function index(ProductRepository $productRepository,
+    HomeSliderRepository $homeSliderRepository): Response
     {
         $products = $productRepository->findAll();
+
+        $homeSlider = $homeSliderRepository->findBy(['isDisplayed'=>true]);
+        //dd($homeSlider);
 
         $productNewArrival = $productRepository->findByIsNewArrival(1);
 
@@ -26,6 +31,7 @@ class HomeController extends AbstractController
             'products' => $products,
             'productNewArrival' => $productNewArrival,
             'productSpecialOffer' => $productSpecialOffer,
+            'homeSlider' => $homeSlider,
         ]);
     }
 

@@ -5,6 +5,8 @@
 <div class="section">
 	<div class="container">
         <div class="row">
+                <div> <strong>Référence :</strong> {{ order.reference }}</div>
+                <div> <strong>  Date :</strong> {{ order.createdAt | date('d/m/Y')}}</div>
             <div class="col-12">
                 <div class="table-responsive shop_cart_table">
                 <!-- tableau avec le contenu du panier -->

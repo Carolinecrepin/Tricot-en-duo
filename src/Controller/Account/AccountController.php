@@ -21,11 +21,16 @@ class AccountController extends AbstractController
         ]);
     }
 
+    //pour voir le detail d'une commande
     #[Route('/order/{id}', name: 'account_order_details')]
     public function show(?Order $order): Response
     {
+        //s'il n'y a pas de commande || si la commande n'appartient pas au user connecté || si la commande n'est pas payée
         if(!$order || $order->getUser() !== $this->getUser()){
             return $this->redirectToRoute("home");
+        }
+        if(!$order->getIsPaid()){
+            return $this->redirectToRoute("account");
         }
         return $this->render('account/detail_order.html.twig', [
             'order' => $order,
