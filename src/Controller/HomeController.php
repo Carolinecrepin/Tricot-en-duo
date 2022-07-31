@@ -10,6 +10,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\RelatedProducts;
 use App\Entity\Product;
+use App\Entity\SearchProduct;
+use App\Form\SearchProductType;
+use Symfony\Component\HttpFoundation\Request;
 
 class HomeController extends AbstractController
 {
@@ -47,13 +50,24 @@ class HomeController extends AbstractController
         ]);
     }
 
+    //boutique de produit 
     #[Route('/shop', name: 'shop')]
-    public function shop(ProductRepository $productRepository): Response
+    public function shop(ProductRepository $productRepository, Request $request): Response
     {
         $products = $productRepository->findAll();
 
+        $search = new SearchProduct();
+        $form = $this->createForm(SearchProductType::class, $search);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            //dd($search);
+            $products = $productRepository->findWithSearch($search);     //recup les produits de la recherche
+        }
+
         return $this->render('home/shop.html.twig', [
             'products' => $products,
+            'search' =>$form->createView()
         ]);
     }
 }
