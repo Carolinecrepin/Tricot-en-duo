@@ -10,24 +10,14 @@
     <!-- barre de navigation de connection et langues-->
     <div class="top-header">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-right">
                 <div class="col-md-6">
-                    <div class="d-flex align-items-center justify-content-center justify-content-md-start">
-                        <div class="lng_dropdown mr-2">
-                            <select name="countries" class="custome_select">
-                                <option value='en' data-image="assets/images/eng.png" data-title="English">English</option>
-                                <option value='fn' data-image="assets/images/fn.png" data-title="France">France</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="text-center text-md-right">
+                    <div class=" text-right text-md-right">
                            <ul class="header_list">
-                            <li><a href=""><i class="ti-heart"></i><span>Favoris</span></a></li>
-                            <!-- condition si l'utilisateur est connecté on affiche se deconnecter, s'il ne l'est pas afficher s'inscrire et se connecter -->
+                            <!-- condition si l'utilisateur est connecté on affiche se deconnecter et mon compte, s'il ne l'est pas afficher s'inscrire et se connecter -->
                             {% if app.user %}
-                                <li><a href="{{ path('logout') }}"><i class="ti-user"></i><span>Se déconnecter</span></a></li>
+                                <li><a href="{{ path('account') }}"><i class="ti-user"></i><span>Mon compte</span></a></li>
+                                <li><a href="{{ path('logout') }}"><i class="fas fa-sign-out-alt"></i><span>Me déconnecter</span></a></li>
                             {% else %}
                                 <li><a href="{{ path('login') }}"><i class="ti-user"></i><span>Se connecter</span></a></li>
                                 <li><a href="{{ path('register') }}"><i class="fa-solid fa-user-plus"></i><span>S'inscrire</span></a></li>
@@ -53,12 +43,12 @@
                             <a  class="nav-link" href="{{path('home')}}">Accueil</a>   
                         </li>
                         <li class="dropdown">
-                            <a class=" nav-link" href="#" data-toggle="dropdown">Tutos</a>
+                            <a class=" nav-link" href="#">Tutos</a>
                         </li>
                         <li class="">
-                            <a class=" nav-link" href="#" data-toggle="dropdown">Boutique</a>   
+                            <a class=" nav-link" href="{{ path('shop')}}">Boutique</a>   
                         </li>
-                        <li><a class="nav-link nav_item" href="#">Contactez-nous</a></li> 
+                        <li><a class="nav-link nav_item" href="{{ path('contact_new')}}">Contactez-nous</a></li> 
                     </ul>
                 </div>
                 <ul class="navbar-nav attr-nav align-items-center">

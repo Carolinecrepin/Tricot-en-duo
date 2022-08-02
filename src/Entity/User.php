@@ -78,6 +78,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    public function getFullName(){
+        return $this->firstname.' '.$this->lastname;
+    }
+
     /**
      * A visual identifier that represents this user.
      *

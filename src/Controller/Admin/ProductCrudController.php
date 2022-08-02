@@ -30,7 +30,7 @@ class ProductCrudController extends AbstractCrudController
             SlugField::new('slug')->setTargetFieldName('name')->hideOnIndex(),
             TextEditorField::new('description'),
             TextEditorField::new('moreInformations')->hideOnIndex(),
-            MoneyField::new('price')->setCurrency('USD'),
+            MoneyField::new('price')->setCurrency('EUR'),
             IntegerField::new('quantity'),
             TextFIeld::new('tags'),
             BooleanField::new('isNewArrival', 'new arrival'),

@@ -3,7 +3,7 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-
+    {{ include("components/home_slider.html.twig", {'slider': homeSlider })}}
 <div class="container">
     <div class="section small_pt pb_70">
 	<div class="container">
