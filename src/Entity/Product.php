@@ -42,7 +42,7 @@ class Product
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $picture3;
 
-    #[ORM\ManyToMany(targetEntity: Categories::class, inversedBy: 'products')]
+    #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'products')]
     private $category;
 
     #[ORM\OneToMany(mappedBy: 'product', targetEntity: ReviewsProduct::class)]
@@ -181,14 +181,14 @@ class Product
     }
 
     /**
-     * @return Collection<int, Categories>
+     * @return Collection<int, Category>
      */
     public function getCategory(): Collection
     {
         return $this->category;
     }
 
-    public function addCategory(Categories $category): self
+    public function addCategory(Category $category): self
     {
         if (!$this->category->contains($category)) {
             $this->category[] = $category;
@@ -197,7 +197,7 @@ class Product
         return $this;
     }
 
-    public function removeCategory(Categories $category): self
+    public function removeCategory(Category $category): self
     {
         $this->category->removeElement($category);
 

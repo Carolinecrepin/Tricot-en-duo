@@ -9,9 +9,9 @@ class SearchProduct
     private ?int $maxPrice = null;
 
     /**
-     * @var Categories[]
+     * @var Category[]
      */
-    private array $categories = [];
+    private array $category = [];
 
     private ?string $tags = null;
 
@@ -40,14 +40,14 @@ class SearchProduct
         return $this;
     }
 
-    public function getCategories(): array
+    public function getCategory(): array
     {
-        return $this->categories;
+        return $this->category;
     }
 
-    public function setCategories(?array $categories): self
+    public function setCategory(?array $category): self
     {
-        $this->categories = $categories;
+        $this->category = $category;
 
         return $this;
     }
