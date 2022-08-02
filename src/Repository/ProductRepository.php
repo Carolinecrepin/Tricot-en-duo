@@ -62,10 +62,10 @@ class ProductRepository extends ServiceEntityRepository
         }
 
         //condition sur les catégories
-        if($search->getCategories()){
+        if($search->getCategory()){
             $query = $query->join('p.category' , 'c')
-                            ->andWhere('c.id IN (:categories)')
-                            ->setParameter('categories',$search->getCategories());
+                            ->andWhere('c.id IN (:category)')
+                            ->setParameter('category',$search->getCategory());
         }
         return $query->getQuery()->getResult();
     }
