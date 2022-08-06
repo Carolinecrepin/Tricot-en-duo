@@ -36,14 +36,14 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home', 'homepage');
-        yield MenuItem::linkToCrud('Product', 'fas fa-shopping-cart', Product::class);
-        yield MenuItem::linkToCrud('Order', 'fas fa-shopping-bag', Order::class);
-        yield MenuItem::linkToCrud('Cart', 'fas fa-boxes', Cart::class);
+        yield MenuItem::linkToDashboard('Accueil', 'fa fa-home', 'homepage');
+        yield MenuItem::linkToCrud('Produits', 'fas fa-shopping-cart', Product::class);
+        yield MenuItem::linkToCrud('Commandes', 'fas fa-shopping-bag', Order::class);
+        yield MenuItem::linkToCrud('Paniers', 'fas fa-boxes', Cart::class);
         yield MenuItem::linkToCrud('Categories', 'fas fa-list', Category::class);
-        yield MenuItem::linkToCrud('Carrier', 'fas fa-truck', Carrier::class);
-        yield MenuItem::linkToCrud('Home Slider', 'fas fa-images', HomeSlider::class);
+        yield MenuItem::linkToCrud('Livreur', 'fas fa-truck', Carrier::class);
+        yield MenuItem::linkToCrud('Carousel', 'fas fa-images', HomeSlider::class);
         yield MenuItem::linkToCrud('Contact', 'fas fa-envelope', Contact::class);
-        yield MenuItem::linkToCrud('User', 'fas fa-users', User::class);
+        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-users', User::class);
     }
 }

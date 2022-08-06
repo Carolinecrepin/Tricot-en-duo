@@ -22,7 +22,7 @@ class CartController extends AbstractController
     public function index(): Response
     {
         $cart = $this->cartServices->getFullCart();
-        //si le panier avec products est vide
+        //if the cart is empty
         if(!isset($cart['products'])){
             return $this->redirectToRoute("home");
         }

@@ -50,7 +50,7 @@ class HomeController extends AbstractController
         ]);
     }
 
-    //boutique de produit 
+    //shop products 
     #[Route('/shop', name: 'shop')]
     public function shop(ProductRepository $productRepository, Request $request): Response
     {
@@ -61,8 +61,7 @@ class HomeController extends AbstractController
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
-            //dd($search);
-            $products = $productRepository->findWithSearch($search);     //recup les produits de la recherche
+            $products = $productRepository->findWithSearch($search);     //recovers the products of the research
         }
 
         return $this->render('home/shop.html.twig', [

@@ -31,11 +31,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $password;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Assert\NotBlank (message : "Votre adresse nom d'utilisateur est obligatoire")]
+    #[Assert\NotBlank (message : "Votre nom d'utilisateur est obligatoire")]
     private $username;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Assert\NotBlank (message : "Votre adresse prénom est obligatoire")]
+    #[Assert\NotBlank (message : "Votre prénom est obligatoire")]
     private $firstname;
 
     #[ORM\Column(type: 'string', length: 255)]

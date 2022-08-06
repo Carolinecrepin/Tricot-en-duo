@@ -1162,7 +1162,6 @@ a.ui-button:active,
 .ui-icon-extlink { background-position: -32px -80px; }
 .ui-icon-newwin { background-position: -48px -80px; }
 .ui-icon-refresh { background-position: -64px -80px; }
-.ui-icon-shuffle { background-position: -80px -80px; }
 .ui-icon-transfer-e-w { background-position: -96px -80px; }
 .ui-icon-transferthick-e-w { background-position: -112px -80px; }
 .ui-icon-folder-collapsed { background-position: 0 -96px; }
@@ -1194,7 +1193,6 @@ a.ui-button:active,
 .ui-icon-search { background-position: -160px -112px; }
 .ui-icon-wrench { background-position: -176px -112px; }
 .ui-icon-gear { background-position: -192px -112px; }
-.ui-icon-heart { background-position: -208px -112px; }
 .ui-icon-star { background-position: -224px -112px; }
 .ui-icon-link { background-position: -240px -112px; }
 .ui-icon-cancel { background-position: 0 -128px; }

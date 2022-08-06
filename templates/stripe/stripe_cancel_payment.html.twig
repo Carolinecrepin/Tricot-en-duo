@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Paiement annulé {% endblock %}
+{% block title %}Paiement annulé !{% endblock %}
 
 {% block body %}
 <div class="section checkout">
@@ -11,18 +11,18 @@
                 <div class="text-center order_complete">
                 	<i class="fas fa-ban"></i>
                     <div class="heading_s1">
-                      <h3>Sorry {{ order.user.firstname }} {{ order.user.lastname }}. Your payment has been canceled !</h3>
+                      <h3>Désolé {{ order.user.firstname }} {{ order.user.lastname }}. Votre paiement a été annulé !</h3>
                       <div>
-                        <div>Payment for order number <strong>{{ order.reference }}</strong>  has been canceled.</div>
-                        <div>You have tried to pay for your order and we thank you.
+                        <div>Le paiement pour la commande <strong>{{ order.reference }}</strong>  a été annulé.</div>
+                        <div>Vous avez essayé de payer votre commande et nous vous en remercions.
 
-                            Your payment has not been accepted. Your order has not been confirmed.
-                            We invite you to connect to our site to renew your order.
+                            Votre paiement n'a pas été accepté. Votre commande n'a pas été confirmée.
+                            Nous vous invitons à vous connecter sur notre site pour renouveler votre commande.
 
-                            See you soon on our online store.</div>
+                            A bientôt sur notre boutique Tricot en Duo</div>
                                 <div>
 
-                                <a href="{{ path('checkout')}}" class="btn btn-fill-out">Retry payment</a>
+                                <a href="{{ path('checkout')}}" class="btn btn-fill-out">Recommencer le paiement</a>
                               </div>
                       </div>
 
