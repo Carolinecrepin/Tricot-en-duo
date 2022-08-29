@@ -5,13 +5,14 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
+#[UniqueEntity(fields: ['email'], message: 'Il existe déjà un compte avec cette adresse e-mail')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -48,16 +49,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Address::class)]
     private $addresses;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: ReviewsProduct::class)]
-    private $reviewsProducts;
-
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Order::class)]
     private $orders;
 
     public function __construct()
     {
         $this->addresses = new ArrayCollection();
-        $this->reviewsProducts = new ArrayCollection();
         $this->orders = new ArrayCollection();
     }
 
@@ -219,36 +216,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }*/
 
     /**
-     * @return Collection<int, ReviewsProduct>
-     */
-    public function getReviewsProducts(): Collection
-    {
-        return $this->reviewsProducts;
-    }
-
-    public function addReviewsProduct(ReviewsProduct $reviewsProduct): self
-    {
-        if (!$this->reviewsProducts->contains($reviewsProduct)) {
-            $this->reviewsProducts[] = $reviewsProduct;
-            $reviewsProduct->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeReviewsProduct(ReviewsProduct $reviewsProduct): self
-    {
-        if ($this->reviewsProducts->removeElement($reviewsProduct)) {
-            // set the owning side to null (unless already changed)
-            if ($reviewsProduct->getUser() === $this) {
-                $reviewsProduct->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection<int, Order>
      */
     public function getOrders(): Collection
@@ -276,5 +243,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         return $this;
+    }
+
+    public function isIsVerified(): ?bool
+    {
+        return $this->isVerified;
     }
 }

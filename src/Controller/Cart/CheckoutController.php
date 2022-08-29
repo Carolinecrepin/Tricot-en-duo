@@ -23,7 +23,7 @@ class CheckoutController extends AbstractController
     #[Route('/checkout', name: 'checkout')]
     public function index(Request $request ): Response
     {
-        $user = $this->getUser();
+        $user = $this->getUser('addresses');
         //dd($user);
         $cart = $this->cartServices->getFullCart();
         //dd($cart);
@@ -38,7 +38,7 @@ class CheckoutController extends AbstractController
         }
         //mise en place du formulaire
         $form = $this->createForm(CheckoutType::class,['user'=>$user]);          //null,
-
+        //dd($form);
         return $this->render('checkout/index.html.twig', [
             'cart' => $cart,
             'checkout' => $form->createView()

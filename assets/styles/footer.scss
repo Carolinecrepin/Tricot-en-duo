@@ -1,37 +1,36 @@
+#section{
+    position:absolute;
+    bottom:0;
+}
 .footer{
     display: flex;
     flex-direction: row;
-    background-color:#D3BBB4 ;
-    justify-content: space-between;
-    padding:0.5em;
-    align-items: center;
-    position:absolute;
+    justify-content: space-around;
+    align-items:center;
+    padding:1em;
+    margin-top:5em;
+    background-color:$firstColor;
+    height: 150px;
+
     bottom:0;
     width:100%;
-    padding-top:3em;
 }
-
-.mention{
+.mentions{
     display: flex;
     flex-direction: column;
-    padding:0.5em;
-    margin-left: 0.5em;
-}
-.social{
-    display: flex;
-    flex-direction: row;
-}
-.svg-inline--fa.fa-2xl{
-    padding:0.2em;
-}
+    margin:1em;
 
-.svg-inline--fa{
-    padding:0.3em;
 }
-
+.row.align-items-center{
+    margin-bottom: 5px;
+}
 .contact-us{
     display: flex;
     flex-direction: row;
-    margin-right: 0.5em;
-    align-items: center;
+    justify-content: space-between;
+    align-items: baseline;
 }
+.fas.fa-solid.fa-envelope.fa-2xl{
+    padding-right: 0.5em;
+}
+

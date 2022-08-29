@@ -144,12 +144,7 @@
 	.banner_content2 h2 {
 		font-size: 60px;
 	}
-	.header_wrap.transparent_header + .breadcrumb_section {
-		padding-top: 150px;
-	}
-	.header_wrap.transparent_header.header_with_topbar + .breadcrumb_section {
-		padding-top: 200px;
-	}
+	
 	.breadcrumb_section {
 		padding: 100px 0;
 	}
@@ -231,9 +226,7 @@
 		min-height: 56px;
 		max-height: 56px;
 	}
-	.add-to-cart .btn {
-		padding: 10px 20px;
-	}
+	
 	.shop_banner2 {
 		height: 185px;
 	}
@@ -452,43 +445,7 @@
 	.heading_s1, .heading_s4 {
 		margin-bottom: 20px;
 	}
-	.header_wrap nav.navbar {
-		display: table;
-		width: 100%;
-	}
-	.header_wrap .navbar .navbar-nav.attr-nav {
-		display: block;
-		float: right;
-	}
-	.header_wrap .navbar-collapse {
-		position: absolute;
-		left: 0;
-		right: 0;
-		top: 100%;
-		z-index: 999;
-	}
-	.navbar .navbar-collapse .navbar-nav {
-		max-height: 80vh;
-		overflow-y: auto;
-	}
-	.header_wrap .navbar-collapse.mobile_side_menu {
-		position: fixed;
-		right: -280px;
-		display: block;
-		top: 0;
-		bottom: 0;
-		width: 270px;
-		left: auto;
-		height: auto !important;
-		transition: all 0.1s ease-in-out;
-	}
-	.header_wrap .navbar-collapse.mobile_side_menu.show {
-		right: 0;
-	}
-	.header_wrap .navbar-collapse.mobile_side_menu .navbar-nav {
-		height: 100%;
-		max-height: 100vh;
-	}
+
 	.navbar .navbar-nav > li > .nav-link,
 	.nav-fixed .navbar .navbar-nav > li > .nav-link {
 		padding: 10px 10px;
@@ -710,12 +667,7 @@
 	.order_review {
 		padding: 20px;
 	}
-	.product-add-to-cart {
-		white-space: nowrap;
-	}
-	.product-add-to-cart .btn {
-		padding: 10px 24px;
-	}
+	
 	.load_more_wrap {
 		margin-top: 0px;
 	}
@@ -1695,10 +1647,7 @@
 		width: 95%;
 		padding: 30px 10px 10px;
 	}
-	.order_complete i {
-		font-size: 60px;
-		margin-bottom: 10px;
-	}
+	
 	.empty_icon {
 		height: 70px;
 		width: 70px;
@@ -1884,6 +1833,7 @@
 	}
 	.navbar-brand img {
 		max-width: 140px;
+		padding-left:10px;
 	}
 	.fb_style1::before {
 		width: 220px;
@@ -1952,21 +1902,13 @@
 		line-height: 28px;
 		font-size: 16px;
 	}
-	.shop_container.list .list_product_action_box .pr_action_btn li.add-to-cart a {
-		padding: 10px 17px;
-		font-size: 14px;
-	}
-	.shop_container.list .list_product_action_box .pr_action_btn li a {
-		width: 27px;
-		height: 27px;
-	}
+	
+	
 	.shop_container.list .pr_action_btn li a i {
 		line-height: 27px;
 		font-size: 16px;
 	}
-	.order_complete i {
-		font-size: 50px;
-	}
+	
 	.comment_user img {
 		max-width: 50px;
 	}
@@ -1978,7 +1920,7 @@
 		padding: 5px 5px 5px 5px;
 	}
 	.contact_detail > li, .header_list > li {
-		padding: 2px 10px 2px 0;
+		padding: 1em 10px 2px 0;
 	}
 	.navbar-nav .dropdown-menu.cart_box.show {
 		right: -50px;

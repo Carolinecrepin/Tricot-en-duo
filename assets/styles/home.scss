@@ -1,0 +1,84 @@
+.product_action_box {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	z-index: 2;
+	right: 0;
+	text-align: center;
+	padding-top: 0;
+	transition: all .5s ease-in-out;
+	-moz-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+.shop_container.list .list_product_action_box .pr_action_btn li.add-to-cart a {
+    padding: 10px 17px;
+    font-size: 14px;
+}
+.shop_container.list .list_product_action_box .pr_action_btn li a {
+    width: 27px;
+    height: 27px;
+}
+.product_action_box li {
+	-webkit-transform: translate(0, 15px);
+	-ms-transform: translate(0, 15px);
+	-o-transform: translate(0, 15px);
+	transform: translate(0, 15px);
+	opacity: 0;
+}
+.product_action_box li:nth-child(1) {
+	-webkit-transition: all 0.2s ease 0s;
+	-o-transition: all 0.2s ease 0s;
+	transition: all 0.2s ease 0s;
+}
+.product_action_box li:nth-child(2) {
+	-webkit-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+}
+.product_action_box li:nth-child(3) {
+	-webkit-transition: all 0.4s ease 0s;
+	-o-transition: all 0.4s ease 0s;
+	transition: all 0.4s ease 0s;
+}
+.product_action_box li:nth-child(4) {
+	-webkit-transition: all 0.5s ease 0s;
+	-o-transition: all 0.5s ease 0s;
+	transition: all 0.5s ease 0s;
+}
+.product:hover .product_action_box li,
+.product_box:hover .product_action_box li,
+.product_wrap:hover .product_action_box li {
+	-webkit-transform: translate(0, 0);
+	-ms-transform: translate(0, 0);
+	-o-transform: translate(0, 0);
+	transform: translate(0, 0);
+	opacity: 1;
+}
+.shop_container:not(.list) .list_product_action_box,
+.shop_container.list .product_action_box {
+	display: none;
+}
+.shop_container.list .list_product_action_box .pr_action_btn li.add-to-cart a {
+	font-size: 16px;
+	width: auto;
+	height: auto;
+	padding: 12px 30px;
+	background-color: #444444;
+	border: 1px solid #444444;
+	color: #fff;
+	border-radius: 4px;
+}
+
+.add-to-cart .btn {
+    padding: 10px 20px;
+}
+.add-to-cart .btn {
+    padding: 10px 20px;
+}
+.product-add-to-cart {
+    white-space: nowrap;
+}
+.product-add-to-cart .btn {
+    padding: 10px 24px;
+}

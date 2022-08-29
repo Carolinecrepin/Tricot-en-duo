@@ -5,6 +5,7 @@ namespace App\Controller\Account;
 use App\Services\CartServices;
 use App\Entity\Address;
 use App\Form\AddressType;
+use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\AddressRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,7 +31,7 @@ class AddressController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user = $this->getUser();
+            $user = $this->getUser();       //recupère l'utilisateur connecté
             $address->setUser($user);
             $addressRepository->add($address, true);
 
