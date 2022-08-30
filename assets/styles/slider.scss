@@ -7,3 +7,8 @@
 .banner_section.shop_el_slider .banner_content_wrap .carousel-item {
     height: 350px;
 }
+.carousel-control-next:hover, .carousel-control-prev:hover,
+.light_arrow .carousel-control-next:hover, .light_arrow .carousel-control-prev:hover{
+	background-color: #D3BBB4;
+	color: #fff;
+}

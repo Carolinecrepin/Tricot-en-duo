@@ -24,7 +24,7 @@ class AddressController extends AbstractController
     }
 
     #[Route('/new', name: 'address_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, AddressRepository $addressRepository, CartServices $cartServices): Response
+    public function new(Request $request, AddressRepository $addressRepository, CartServices $cartServices, entityManagerInterface $entityManager): Response
     {
         $address = new Address();
         $form = $this->createForm(AddressType::class, $address);
@@ -33,7 +33,9 @@ class AddressController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $this->getUser();       //recupère l'utilisateur connecté
             $address->setUser($user);
-            $addressRepository->add($address, true);
+            //$addressRepository->add($address, true);
+            $entityManager->persist($address);
+            $entityManager->flush();
 
             //est ce que son panier contient des choses alors on renvoie sur checkout
             if($cartServices->getFullCart()){
@@ -59,7 +61,7 @@ class AddressController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $addressRepository->add($address, true);
 
-            $this->addFlash('address_message', 'Your address have been edited');
+            $this->addFlash('address_message', 'Votre adresse a bien été éditée');
             return $this->redirectToRoute('account');
         }
 
@@ -74,7 +76,7 @@ class AddressController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete'.$address->getId(), $request->request->get('_token'))) {
             $addressRepository->remove($address, true);
-            $this->addFlash('address_message', 'Your address have been deleted');
+            $this->addFlash('address_message', 'Votre adresse a bien été supprimée');
         }
 
         return $this->redirectToRoute('account');

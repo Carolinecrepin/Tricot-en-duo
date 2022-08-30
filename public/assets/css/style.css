@@ -1,25 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap&family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 
 /******************** GENERAL ************************/
-html, body {
-    -webkit-font-smoothing: antialiased;
-    -moz-font-smoothing: antialiased;
-    -o-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-	font-smoothing: antialiased;
-}
-body {
-	background: #ffffff none repeat scroll 0 0;
-    color: #687188;
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-}
-h1,h2,h3,h4,h5,h6 {
-	color: #444444;
-	font-family: 'Roboto';
-}
+
 p {
-	color:#687188;
+	color:#444444;
 	line-height: 28px;
 	margin-bottom: 25px;
 }
@@ -30,7 +14,7 @@ a {
 	transition: all .3s ease-in-out;
 }
 a:hover {
-	color: #ff0000;
+	color: white;
 	text-decoration: none;
 }
 a:focus {
@@ -53,7 +37,7 @@ fieldset {
 	padding: 0;
 }
 label {
-	color: #6c757d;
+	color: #444444;
 }
 input:focus,
 textarea:focus {
@@ -746,12 +730,6 @@ button:focus {
 }
 .box_shadow1 {
 	box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-.border-top-tran {
-	border-top: 1px solid rgba(255,255,255,0.1);
-}
-.border_bottom_tran {
-	border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 /*Title Css*/
@@ -1593,12 +1571,12 @@ button:focus {
 	display: inline-block;
 	padding: 0px 5px 5px 0;
 }
-.social_icons li a {
-	font-size: 18px;
-	color: #687188;
-	height: 36px;
-	width: 36px;
-	line-height: 36px;
+.social_icons li a , .fa-brands-fa-etsy-fa-2xl{
+	font-size: 25px;
+	color: white;
+	height: 70px;
+	width: 70px;
+	line-height: 50px;
 	display: inline-block;
 	text-align: center;
 	vertical-align: middle;
@@ -1606,7 +1584,7 @@ button:focus {
 }
 .social_icons li a:hover, 
 .header_wrap .social_icons li a:hover {
-	color: #E439A1;
+	color: #444444;
 }
 .social_icons.social_small li a {
 	height: 25px;
@@ -1620,7 +1598,7 @@ button:focus {
 	border-color: #fff;
 }
 .social_white .social_icons li a:hover, .social_white.social_icons li a:hover {
-	color: #E439A1;
+	color: #444444;
 }
 .border_social .social_icons li a:hover, .border_social.social_icons li a:hover {
 	background-color: #E439A1;
@@ -2661,11 +2639,7 @@ input.text {
 	box-shadow: 0 0 10px rgba(0,0,0,0.1);
 	color: #000;
 }
-.carousel-control-next:hover, .carousel-control-prev:hover,
-.light_arrow .carousel-control-next:hover, .light_arrow .carousel-control-prev:hover{
-	background-color: #E439A1;
-	color: #fff;
-}
+
 .indicators_style1,
 .indicators_style2,
 .indicators_style3 {
@@ -3261,11 +3235,11 @@ footer {
 	overflow: hidden;
 }
 .footer_dark {
-	background-color: #202325;
+	background-color: #D3BBB4!important;
 	position: relative;
 }
 .footer_top {
-	padding: 100px 0 70px;
+	padding: 50px 0 30px;
 }
 .footer_logo {
 	margin-bottom: 20px;
@@ -3348,10 +3322,7 @@ footer .widget_title {
 	font-size: 22px;
 	color: #E439A1;
 }
-.bottom_footer {
-	padding: 30px 0;
-	position: relative;
-}
+
 .footer_link li {
 	display: inline-block;
 	position: relative;
@@ -3365,7 +3336,7 @@ footer .widget_title {
 	color: #fff;
 }
 .footer_dark a:hover, .footer_dark .widget_links li a:hover, .widget_links li a:hover, .footer_dark .footer_link li a:hover,.footer_link li a:hover {
-	color: #E439A1;
+	color: #444444;
 }
 .widget_contact_form {
 	background-color: #fff;
@@ -5825,8 +5796,8 @@ footer .widget_recent_post .post_img img {
 	text-transform: uppercase;
 }
 .tab-style3 .nav-tabs .nav-item a.active {
-	border-bottom-color: #E439A1;
-	color: #E439A1;
+	border-bottom-color: #D3BBB4;
+	color: #D3BBB4;
 }
 .tab_slider > .tab-pane {
 	display: block;
@@ -5929,8 +5900,8 @@ footer .widget_recent_post .post_img img {
 	transform: translateY(-65%) rotate(-45deg);
 }
 .custome-checkbox input[type="checkbox"]:checked + .form-check-label::before {
-	background-color: #E439A1;
-	border-color: #E439A1;
+	background-color: #908f8f;
+	border-color:black;
 }
 .custome-radio .form-check-input, .custome-checkbox .form-check-input {
 	display: none;
@@ -6540,9 +6511,9 @@ blockquote p:last-child {
 	margin: 13px;
 }
  label,#address, #carrier,#informations {
-	font-weight: bold;
-	color: black;
-	font-size: 1em
+	font-weight: bolder;
+	color: #444444;
+	font-size: 0.9em
 }
 .checkout div.heading_s1 > div.content .form-check{
 	border-bottom: 2px solid;

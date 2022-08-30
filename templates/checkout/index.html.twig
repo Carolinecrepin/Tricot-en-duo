@@ -13,6 +13,7 @@
                         <div class="content">
                             {{ form_widget(checkout.address) | replace({'[spr]' : '<br>'}) | raw}}
                         </div>
+                        
                         <a href="{{ path('address_new')}}" class="btn btn-fill-out btn-block mt-1"> Ajouter une nouvelle adresse</a>
                 </div>
                 <div class="heading_s1">

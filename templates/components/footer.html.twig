@@ -1,18 +1,47 @@
-<section>
-    <div class="footer">
-        <div class="mentions">
-            <a href="{{ path('cgu_conditions')}}" class="row align-items-center">CGU/CGV</a>
-            <P class="row align-items-center">Mentions Légales</p>
-            <p class="row align-items-center"> RGPD </P>
-        </div>
-        <div class="social">
-            <i class="fas fa-brands fa-square-instagram fa-2xl"></i>
-            <i class="fas fa-brands fa-facebook-square fa-2xl"></i>
-            <i class="fas fa-brands fa-etsy fa-2xl"></i>
-        </div>
-        <div class="contact-us">
-            <i class=" fas fa-solid fa-envelope fa-2xl"></i>
-            <p> Contactez-nous</p>
+
+<footer class="footer_dark">
+    <div class="footer_top">
+        <div class="container">
+        <div class="row-container-footer">
+            <!-- mentions -->
+                <div class="mentions">
+                    <a href="{{ path('cgu_conditions')}}" class="row align-items-center">CGU/CGV</a>
+                    <a href="{{ path('legal_notice')}}" class="row align-items-center">Mentions Légales</a>
+                    <a href="{{ path('RGPD')}}" class="row align-items-center"> RGPD </a>
+                </div>
+            <!-- reseaux sociaux -->
+                <div class="social">
+                    <ul class="social_icons social_white">
+                        <li><a href="#"><i class="fa-brands fa-etsy fa-2xl"></i></a></li>
+                        <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                        <li><a href="https://www.instagram.com/tricotenduo"><i class="ion-social-instagram-outline"></i></a></li>
+                    </ul>
+                </div>
+            <!-- contactez-nous -->
+                <div class="contact-us">
+                    <i class=" fas fa-solid fa-envelope fa-2xl"></i>
+                    <p class="contact-us"> Contactez-nous</p>
+                </div>
+            </div>
+    </div>
+    <div class="bottom_footer border-top-tran">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-md-0 text-center text-md-left">© 2022 Tous droits réservés</p>
+                </div>
+                <div class="col-md-6">
+                    <ul class="footer_payment text-center text-lg-right">
+                        <li><a href="#"><img src="assets/images/visa.png" alt="visa"></a></li>
+                        <li><a href="#"><img src="assets/images/discover.png" alt="discover"></a></li>
+                        <li><a href="#"><img src="assets/images/master_card.png" alt="master_card"></a></li>
+                        <li><a href="#"><img src="assets/images/paypal.png" alt="paypal"></a></li>
+                        <li><a href="#"><img src="assets/images/amarican_express.png" alt="amarican_express"></a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-</section>
+</footer>
+
+<a href="#" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a> 

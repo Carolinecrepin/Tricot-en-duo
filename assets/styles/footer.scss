@@ -29,8 +29,25 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: baseline;
+    font-size:1em;
+    align-self: center;
 }
 .fas.fa-solid.fa-envelope.fa-2xl{
     padding-right: 0.5em;
+    color:white;
+    font-size:1.5em;
 }
 
+.row-container-footer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-right: 15px;
+    margin-left:15px;
+    align-self: start;
+    align-items:center;
+}
+.bottom_footer {
+	padding: 10px 0;
+	position: relative;
+}
