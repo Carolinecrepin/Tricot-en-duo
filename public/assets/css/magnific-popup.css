@@ -48,7 +48,7 @@
   z-index: 1045; }
 
 .mfp-inline-holder .mfp-content,
-.mfp-content {
+.mfp-ajax-holder .mfp-content {
   width: 100%;
   cursor: auto; }
 
@@ -71,6 +71,7 @@
 
 .mfp-close,
 .mfp-arrow,
+.mfp-preloader,
 .mfp-counter {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -79,7 +80,25 @@
 .mfp-loading.mfp-figure {
   display: none; }
 
-.mfp-s-ready {
+.mfp-hide {
+  display: none !important; }
+
+.mfp-preloader {
+  color: #CCC;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  text-align: center;
+  margin-top: -0.8em;
+  left: 8px;
+  right: 8px;
+  z-index: 1044; }
+  .mfp-preloader a {
+    color: #CCC; }
+    .mfp-preloader a:hover {
+      color: #FFF; }
+
+.mfp-s-ready .mfp-preloader {
   display: none; }
 
 .mfp-s-error .mfp-content {

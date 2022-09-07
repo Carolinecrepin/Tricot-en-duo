@@ -15,6 +15,23 @@
   url('../fonts/Linearicons.ttf') format('truetype');
 }
 
+.linearicons,
+
+[class^="linearicons-"], [class*=" linearicons-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Linearicons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .linearicons-home:before {
   content: "\e900";
 }
@@ -1013,6 +1030,9 @@
 }
 .linearicons-bag2:before {
   content: "\ea4c";
+}
+.linearicons-cart:before {
+  content: "\ea4d";
 }
 .linearicons-cart-empty:before {
   content: "\ea4e";

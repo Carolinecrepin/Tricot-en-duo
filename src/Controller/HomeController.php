@@ -68,7 +68,7 @@ class HomeController extends AbstractController
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
-            $products = $this->productRepository->findWithSearch($search);     
+            $products = $this->productRepository->findWithSearch($search);     //recovers the products of the research
         }
 
         return $this->render('home/shop.html.twig', [

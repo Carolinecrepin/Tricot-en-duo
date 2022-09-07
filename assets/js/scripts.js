@@ -113,6 +113,7 @@
 		if($('.search-overlay').hasClass('open'))
 		{
 			$(".search-overlay").removeClass('open');
+			$(".search_trigger").removeClass('open');
 		}
 	});
 	
@@ -146,6 +147,23 @@
 	
 	$(window).on('resize', function() {
 	  setHeight();
+	});
+	
+	$('.sidetoggle').on('click', function () {
+		$(this).addClass('open');
+		$('body').addClass('sidetoggle_active');
+		$('.sidebar_menu').addClass('active');
+		$("body").append('<div id="header-overlay" class="header-overlay"></div>');
+	});
+	
+	$(document).on('click', '#header-overlay, .sidemenu_close',function() {
+		$('.sidetoggle').removeClass('open');
+		$('body').removeClass('sidetoggle_active');
+		$('.sidebar_menu').removeClass('active');
+		$('#header-overlay').fadeOut('3000',function(){
+			$('#header-overlay').remove();
+		});  
+		 return false;
 	});
 	
 	$(".categories_btn").on('click', function() {
@@ -235,9 +253,21 @@
 		
 	});
 	
+	$('.more_slide_open').slideUp();	
+    $('.more_categories').on('click', function (){
+		$(this).toggleClass('show');
+		$('.more_slide_open').slideToggle();
+    });
+	
 	/*===================================*
 	06. SEARCH JS
 	*===================================*/
+    
+	$(".close-search").on("click", function() {
+		$(".search_wrap,.search_overlay").removeClass('open');
+		$("body").removeClass('search_open');
+	});
+	
 	var removeClass = true;
 	$(".search_wrap").after('<div class="search_overlay"></div>');
 	$(".search_trigger").on('click', function () {
@@ -611,7 +641,19 @@
 	$(function () {
 		$('[data-toggle="popover"]').popover();
 	});
-
+	
+	/*===================================*
+	20. PRODUCT COLOR JS
+	*===================================*/
+	$('.product_color_switch span').each(function() {
+		var get_color = $(this).attr('data-color');
+		$(this).css("background-color", get_color);
+	});
+	
+	$('.product_color_switch span,.product_size_switch span').on("click", function() {
+		$(this).siblings(this).removeClass('active').end().addClass('active');
+	});
+	
 	/*===================================*
 	21. QUICKVIEW POPUP + ZOOM IMAGE + PRODUCT SLIDER JS
 	*===================================*/
