@@ -144,12 +144,7 @@
 	.banner_content2 h2 {
 		font-size: 60px;
 	}
-	.header_wrap.transparent_header + .breadcrumb_section {
-		padding-top: 150px;
-	}
-	.header_wrap.transparent_header.header_with_topbar + .breadcrumb_section {
-		padding-top: 200px;
-	}
+
 	.breadcrumb_section {
 		padding: 100px 0;
 	}
@@ -1665,9 +1660,9 @@
 		padding: 30px 20px;
 	}
 	.ajax_quick_view .social_icons li a {
-		height: 30px;
-		width: 30px;
-		line-height: 30px;
+		height: 50px;
+		width: 50px;
+		line-height: 50px;
 	}
 	.ajax_quick_view .product_share > span {
 		margin-right: 10px;

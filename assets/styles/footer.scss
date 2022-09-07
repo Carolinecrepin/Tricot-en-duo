@@ -1,37 +1,52 @@
+#section{
+    position:absolute;
+    bottom:0;
+}
 .footer{
     display: flex;
     flex-direction: row;
-    background-color:#D3BBB4 ;
-    justify-content: space-between;
-    padding:0.5em;
-    align-items: center;
-    position:absolute;
+    justify-content: space-around;
+    align-items:center;
+    padding:1em;
+    margin-top:5em;
+    background-color:$firstColor;
+    height: 150px;
     bottom:0;
     width:100%;
-    padding-top:3em;
 }
 
-.mention{
+.mentions{
     display: flex;
     flex-direction: column;
-    padding:0.5em;
-    margin-left: 0.5em;
+    margin:1em;
 }
-.social{
-    display: flex;
-    flex-direction: row;
+.row.align-items-center{
+    margin-bottom: 5px;
 }
-.svg-inline--fa.fa-2xl{
-    padding:0.2em;
-}
-
-.svg-inline--fa{
-    padding:0.3em;
-}
-
 .contact-us{
     display: flex;
     flex-direction: row;
-    margin-right: 0.5em;
-    align-items: center;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size:1em;
+    align-self: center;
+}
+.fas.fa-solid.fa-envelope.fa-2xl{
+    padding-right: 0.5em;
+    color:white;
+    font-size:1.5em;
+}
+
+.row-container-footer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-right: 15px;
+    margin-left:15px;
+    align-self: start;
+    align-items:center;
+}
+.bottom_footer {
+	padding: 10px 0;
+	position: relative;
 }

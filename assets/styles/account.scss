@@ -1,0 +1,12 @@
+.padding_eight_all{
+    background-color: $secondColor;
+    border-radius:10px;
+}
+.login_wrap{
+    box-shadow: none;
+}
+
+.dashboard_menu .nav-tabs li.nav-item a.active{
+    background-color:$secondColor;
+    color:black;
+}

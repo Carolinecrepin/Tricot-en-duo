@@ -8,37 +8,44 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\RelatedProducts;
 use App\Entity\Product;
 use App\Entity\SearchProduct;
 use App\Form\SearchProductType;
 use Symfony\Component\HttpFoundation\Request;
 
 class HomeController extends AbstractController
-{
-    #[Route('/', name: 'home')]
-    public function index(ProductRepository $productRepository,
-    HomeSliderRepository $homeSliderRepository): Response
-    {
-        $products = $productRepository->findAll();
 
-        $homeSlider = $homeSliderRepository->findBy(['isDisplayed'=>true]);
+{
+    private $productRepository;
+    private $homeSliderRepository;
+
+    public function __construct(ProductRepository $productRepository,
+    HomeSLiderRepository $homeSliderRepository)
+    {
+        $this->productRepository = $productRepository;
+        $this->homeSliderRepository = $homeSliderRepository;
+    }
+
+
+    #[Route('/', name: 'home')]
+    public function index(): Response
+    {
+        $products = $this->productRepository->findAll();
+
+        $homeSlider = $this->homeSliderRepository->findBy(['isDisplayed'=>true]);
         //dd($homeSlider);
 
-        $productNewArrival = $productRepository->findByIsNewArrival(1);
+        $productNewArrival = $this->productRepository->findByIsNewArrival(1);
 
-        $productSpecialOffer = $productRepository->findByIsSpecialOffer(1);
-        //dd([$productNewArrival, $productSpecialOffer]);
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
             'products' => $products,
             'productNewArrival' => $productNewArrival,
-            'productSpecialOffer' => $productSpecialOffer,
             'homeSlider' => $homeSlider,
         ]);
     }
 
-    //voir le detail d'un produit
+    //details product
     #[Route('/product/{slug}', name: 'product_details')]
     public function show(?Product $product): Response
     {
@@ -50,19 +57,18 @@ class HomeController extends AbstractController
         ]);
     }
 
-    //boutique de produit 
+    //shop products 
     #[Route('/shop', name: 'shop')]
-    public function shop(ProductRepository $productRepository, Request $request): Response
+    public function shop(Request $request): Response
     {
-        $products = $productRepository->findAll();
+        $products = $this->productRepository->findAll();
 
         $search = new SearchProduct();
         $form = $this->createForm(SearchProductType::class, $search);
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
-            //dd($search);
-            $products = $productRepository->findWithSearch($search);     //recup les produits de la recherche
+            $products = $this->productRepository->findWithSearch($search);     //recovers the products of the research
         }
 
         return $this->render('home/shop.html.twig', [

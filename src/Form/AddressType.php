@@ -15,9 +15,13 @@ class AddressType extends AbstractType
     {
         $builder
             ->add('fullname',TextType::class)
-            ->add('company',TextType::class)
+            ->add('company',TextType::class, [
+                'required' => false,
+            ])
             ->add('address',TextType::class)
-            ->add('complement',TextType::class)
+            ->add('complement',TextType::class, [
+                'required' => false,
+            ])
             ->add('phone',TextType::class)
             ->add('city',TextType::class)
             ->add('codePostal',TextType::class)

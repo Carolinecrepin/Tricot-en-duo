@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ProductRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
@@ -45,9 +46,6 @@ class Product
     #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'products')]
     private $category;
 
-    #[ORM\OneToMany(mappedBy: 'product', targetEntity: ReviewsProduct::class)]
-    private $reviewsProducts;
-
     #[ORM\Column(type: 'integer')]
     private $quantity;
 
@@ -63,7 +61,6 @@ class Product
     public function __construct()
     {
         $this->category = new ArrayCollection();
-        $this->reviewsProducts = new ArrayCollection();
         $this->createdAt = new \DateTime();
     }
 
@@ -200,36 +197,6 @@ class Product
     public function removeCategory(Category $category): self
     {
         $this->category->removeElement($category);
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, ReviewsProduct>
-     */
-    public function getReviewsProducts(): Collection
-    {
-        return $this->reviewsProducts;
-    }
-
-    public function addReviewsProduct(ReviewsProduct $reviewsProduct): self
-    {
-        if (!$this->reviewsProducts->contains($reviewsProduct)) {
-            $this->reviewsProducts[] = $reviewsProduct;
-            $reviewsProduct->setProduct($this);
-        }
-
-        return $this;
-    }
-
-    public function removeReviewsProduct(ReviewsProduct $reviewsProduct): self
-    {
-        if ($this->reviewsProducts->removeElement($reviewsProduct)) {
-            // set the owning side to null (unless already changed)
-            if ($reviewsProduct->getProduct() === $this) {
-                $reviewsProduct->setProduct(null);
-            }
-        }
 
         return $this;
     }

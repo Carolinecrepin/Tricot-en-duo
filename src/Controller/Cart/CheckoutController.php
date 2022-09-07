@@ -23,10 +23,9 @@ class CheckoutController extends AbstractController
     #[Route('/checkout', name: 'checkout')]
     public function index(Request $request ): Response
     {
-        $user = $this->getUser();
-        //dd($user);
+        $user = $this->getUser('addresses');
         $cart = $this->cartServices->getFullCart();
-        //dd($cart);
+
         //si le panier est vide alors redirige sur home 
         if(!isset($cart['products'])){
             return $this->redirectToRoute("home");
@@ -37,8 +36,9 @@ class CheckoutController extends AbstractController
             return $this->redirectToRoute("address_new");
         }
         //mise en place du formulaire
-        $form = $this->createForm(CheckoutType::class,['user'=>$user]);          //null,
+        $form = $this->createForm(CheckoutType::class,null,['user'=>$user]);          //null,
 
+        $form->handleRequest($request);
         return $this->render('checkout/index.html.twig', [
             'cart' => $cart,
             'checkout' => $form->createView()
@@ -48,7 +48,7 @@ class CheckoutController extends AbstractController
     #[Route('/checkout/confirm', name: 'checkout_confirm')]
     public function confirm(Request $request, OrderServices $orderServices): Response 
     {
-        $user = $this->getUser();
+        $user = $this->getUser('user');
         $cart = $this->cartServices->getFullCart();
         
         //si le panier est vide alors redirige sur home 
@@ -61,7 +61,7 @@ class CheckoutController extends AbstractController
             return $this->redirectToRoute("address_new");
         }
         //mise en place du formulaire
-        $form = $this->createForm(CheckoutType::class,['user'=>$user]);          //null,
+        $form = $this->createForm(CheckoutType::class,null,['user'=>$user]);          //null, 
                 
         $form->handleRequest($request);
 

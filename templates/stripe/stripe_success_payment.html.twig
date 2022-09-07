@@ -1,25 +1,25 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}Commande terminée !{% endblock %}
-
 {% block body %}
     <div class="section checkout">
 	<div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-lg-12">
                 <div class="text-center order_complete">
                 	<i class="fas fa-check-circle"></i>
                     <div class="heading_s1">
-                      <h3>Think you Mr {{ order.user.firstname }} {{ order.user.lastname }}. Payment made successfully !</h3>
+                      <h3>Merci {{ order.user.firstname }} {{ order.user.lastname }}. Le paiement a été effectué avec succès !</h3>
                       <div class="">
-                        <div>Payment for order number <strong>{{ order.reference }}</strong>  has been accepted.</div>
-                        <div>Your payment is currently “pending verification”.
-                            Payments are usually verified within 1 hour.
-                            After verification, the seller begins to process your order.
-                            During this lapse of time, you will not be able to change your order.</div>
+                        <div>Le paiement du numéro de la commande<strong>{{ order.reference }}</strong>  a été accepté.</div>
+                        <div>Votre paiement est actuellement "en attente de vérification".
+                            Les paiements sont généralement vérifiés dans un délai d'une heure.
+                            Après vérification, le vendeur commence à traiter votre commande.
+                            Pendant ce laps de temps, vous ne pourrez pas modifier votre commande.</div>
                         <div>
-                          <div>Thank you for your order! Your order is being processed and will be completed within 3-6 hours. You will receive an email confirmation when your order is completed.</div>
-                          <a href="{{ path('home')}}" class="btn btn-fill-out">Continue Shopping</a>
+                          <div>Merci pour votre commande ! Votre commande est en cours de traitement et sera terminée dans les 3 à 6 heures. Vous recevrez un Email de confirmation lorsque votre commande sera terminée.</div>
+                          <div class="btn">
+                            <a href="{{ path('home')}}" class="btn btn-fill-out">Continuer votre shopping</a>
+                          </div>
                         </div>
                       </div>
                       <div >

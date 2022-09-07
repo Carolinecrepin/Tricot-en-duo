@@ -1,0 +1,34 @@
+.logo{
+    padding-left:1em;
+    padding-bottom: 1em;
+}
+
+.row.align-items-right{
+    display:flex;
+    flex-direction: row;
+    justify-content:right;
+}
+.container-right{
+    padding-right:1.5em;
+}
+
+.navbar .navbar-nav > li > a.active,
+.navbar .navbar-nav > li:hover > a,
+.light_skin.transparent_header.nav-fixed
+.navbar .navbar-nav > li > a.active,
+.light_skin.transparent_header.nav-fixed
+.navbar .navbar-nav > li:hover > a,
+.transparent_header.nav-fixed 
+.light_skin .navbar .navbar-nav > li > a.active,
+.transparent_header.nav-fixed .light_skin .navbar .navbar-nav > li:hover > a {
+    color: white;
+}
+.header_wrap.transparent_header + .breadcrumb_section {
+    padding-top: 150px;
+}
+.header_wrap.transparent_header.header_with_topbar + .breadcrumb_section {
+    padding-top: 200px;
+}
+.justify-content-end{
+    margin-left:20px;
+}
