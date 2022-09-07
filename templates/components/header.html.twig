@@ -66,12 +66,12 @@
                                     <li>
                                         <a href="{{ path('cart_delete_all' , {'id': element.product.id})}}" class="item_remove"><i class="ion-close"></i></a>
                                         <a href="#"><img src="/assets/uploads/products/{{element.product.picture1}}" alt="{{element.product.name}}">{{element.product.name}}</a>
-                                        <span class="cart_quantity"> {{element.quantity}} <span class="cart_amount"> | {{element.product.price/100}}</span><span class="price_symbole">€</span></span>
+                                        <span class="cart_quantity"> {{element.quantity}} <span class="cart_amount"> <span class="price_symbole">${{element.product.price/100}}</span></span></span>
                                     </li>
                                 {% endfor %}
 
                                  <div class="cart_footer">
-                                    <p class="cart_total"><strong>Sous total TTC:</strong> <span class="cart_price"></span>{{ app.session.get('cartData').data.subTotalTTC }}<span class="price_symbole">€</span></p>
+                                    <p class="cart_total"><strong>Sous total TTC:</strong> <span class="cart_price"> <span class="price_symbole">$</span></span>{{ app.session.get('cartData').data.subTotalTTC }}</p>
                                     <p class="cart_buttons"><a href="{{ path('cart') }}" class="btn btn-fill-line rounded-0 view-cart">Voir le panier</a><a href="{{ path('checkout')}}" class="btn btn-fill-out rounded-0 checkout">Paiement</a></p>
                                 </div>
 

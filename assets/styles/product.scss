@@ -1,6 +1,13 @@
 .product-image {
     position: relative;
 }
+.product_img_box {
+    padding: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    overflow: hidden;
+	position: relative;
+}
 .pr_detail .pr_desc {
     display: inline-block;
 }
@@ -31,41 +38,4 @@
 .product_img {
 	max-width: 300px;
 	width: 100%;
-}
-.social_icons [class*="sc_"] {
-	color: #fff !important;
-}
-.social_icons [class*="sc_"] i {
-    transition: all 0.3s ease-in-out;
-    display: block;
-	line-height: 36px;
-}
-.social_icons [class*="sc_"]:hover i {
-    -webkit-animation: toLeftFromRight 0.3s forwards;
-	-moz-animation: toLeftFromRight 0.3s forwards;
-	animation: toLeftFromRight 0.3s forwards;
-}
-.product_img_box {
-    padding: 8px;
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
-    overflow: hidden;
-	position: relative;
-}
-.product-meta li {
-    list-style: none;
-	margin-top: 10px;
-}
-.product-image .slick-list {
-	margin-right: -5px;
-	margin-left: -5px;
-}
-.tab-style3 .nav-tabs .nav-item a.active {
-	border-bottom-color: $firstColor;
-	color: $firstColor;
-}
-.pr_action_btn li a i {
-	vertical-align: middle;
-	line-height: 37px;
-	font-size: 18px;
 }
