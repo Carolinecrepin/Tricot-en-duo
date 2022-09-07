@@ -105,9 +105,6 @@
 	.banner_content h2 {
 		font-size: 52px;
 	}
-	.breadcrumb_section {
-		padding: 100px 0;
-	}
 	.footer_top {
 		padding: 80px 0 50px;
 	}
@@ -487,12 +484,6 @@
 	.banner_content_border {
 		padding: 30px;
 	}
-	.header_wrap.transparent_header + .breadcrumb_section {
-		padding-top: 100px;
-	}
-	.breadcrumb_section {
-		padding: 80px 0;
-	}
 	.highlight_text {
 		font-size: 18px;
 	}
@@ -508,9 +499,6 @@
 	}
 	.padding_eight_all {
 		padding: 6%;
-	}
-	.cs_content .countdown_time, .cs_content .newsletter_form {
-		margin-bottom: 20px;
 	}
 	.social_style3 li a {
 		font-size: 18px;
@@ -615,9 +603,6 @@
 	.countdown_box .countdown {
 		font-size: 34px;
 	}
-	.contact_map2 {
-		height: 500px;
-	}
 	.product-thumbnail img {
 		max-width: 80px;
 	}
@@ -697,9 +682,6 @@
 	}
 	.banner_content_border {
 		padding: 30px;
-	}
-	.breadcrumb_section.page-title-mini {
-		padding: 50px 0;
 	}
 	.footer_top {
 		padding: 50px 0 20px;
@@ -945,12 +927,6 @@
 	}
 	.section.pb_85, .pb_85 {
 		padding-bottom: 15px;
-	}
-	.breadcrumb_section {
-		padding: 50px 0;
-	}
-	.breadcrumb_section.page-title-mini {
-		padding: 30px 0;
 	}
 	.footer_top {
 		padding: 30px 0 15px;
@@ -1398,9 +1374,6 @@
 	}
 	.ripple i {
 		font-size: 14px;
-	}
-	.header_wrap.transparent_header.header_with_topbar + .breadcrumb_section {
-		padding-top: 220px;
 	}
 	.form-control, 
 	.product_search_form input,

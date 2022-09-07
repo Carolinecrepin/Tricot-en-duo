@@ -87,17 +87,6 @@
 .top-header.dark_skin {
 	color: #000;
 }
-.header_wrap.transparent_header + .breadcrumb_section {
-    padding-top: 150px;
-}
-.header_wrap.transparent_header.header_with_topbar + .breadcrumb_section {
-    padding-top: 200px;
-}
-.middle-header {
-	padding: 10px 0;
-	position: relative;
-}
-
 .navbar .navbar-nav li {
 	position: relative;
 	list-style: none;
@@ -1695,7 +1684,6 @@ input.text {
 }
 
 
-
 /* cart in header */
 .cart_box .cart_list {
 	width: 100%;
@@ -1707,6 +1695,10 @@ input.text {
 	list-style: outside none none;
 }
 /* icon */
+
+.ti-user:before {
+	content: "\e602";
+}
 .linearicons,
 
 [class^="linearicons-"], [class*=" linearicons-"] {
@@ -1725,7 +1717,28 @@ input.text {
 }
 .linearicons-cart:before {
     content: "\ea4d";
-  }
+}
+.linearicons-cart-empty:before {
+  content: "\ea4e";
+}
+.linearicons-cart-full:before {
+  content: "\ea4f";
+}
+.linearicons-cart-plus:before {
+  content: "\ea50";
+}
+.linearicons-cart-plus2:before {
+  content: "\ea51";
+}
+.linearicons-cart-add:before {
+  content: "\ea52";
+}
+.linearicons-cart-remove:before {
+  content: "\ea53";
+}
+.linearicons-cart-exchange:before {
+  content: "\ea54";
+}
 
 	/* -------------------------------------------------
 	  min-width: 992px

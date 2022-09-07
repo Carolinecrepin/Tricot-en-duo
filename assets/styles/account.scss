@@ -103,7 +103,7 @@
 	color: #ff0000;
 }
 .dashboard_menu .nav-tabs li.nav-item a.active {
-	background-color: #E439A1;
+	background-color: $firstColor;
 	color: #fff;
 }
 .dashboard_menu .nav-tabs li.nav-item a i {
@@ -280,7 +280,7 @@ blockquote p:last-child {
 .blockquote_style3 {
 	background-color: #FAFAFA;
 	padding: 20px;
-	border-left: 2px solid #E439A1;
+	border-left: 2px solid $firstColor;
 	margin-bottom: 25px;
 	font-size: 16px;
 	line-height: 28px;
@@ -436,4 +436,22 @@ blockquote p:last-child {
 }
 .sc_yelp {
     background-color: #c41200!important;
+}
+.ti-lock:before {
+	content: "\e62b";
+}
+.ti-shopping-cart:before {
+	content: "\e60d";
+}
+.ti-shopping-cart-full:before {
+	content: "\e60e";
+}
+.ti-layout-grid2:before {
+	content: "\e709";
+}
+.ti-id-badge:before {
+	content: "\e699";
+}
+.ti-location-pin:before {
+	content: "\e693";
 }

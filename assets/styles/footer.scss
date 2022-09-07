@@ -89,7 +89,7 @@ footer {
 	box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 .footer_dark a:hover, .footer_dark .widget_links li a:hover, .widget_links li a:hover, .footer_dark .footer_link li a:hover,.footer_link li a:hover {
-	color: #E439A1;
+	color: $firstColor;
 }
 .footer_dark h1, .footer_dark h2, .footer_dark h3, .footer_dark h4, .footer_dark h5, .footer_dark h6, .footer_dark p, .footer_dark a, .footer_dark .widget_links li a, .footer_dark .footer_link li a, .footer_dark .post_content a {
 	color: #fff;
@@ -107,12 +107,6 @@ footer {
 	padding: 30px 0;
 	position: relative;
 }
-.contact_info_style2 li i {
-	margin-right: 8px;
-	margin-top: 2px;
-	font-size: 22px;
-	color: #E439A1;
-}
 .contact_info_light li i {
 	border-color: #fff;
 	color: #fff;
@@ -120,9 +114,6 @@ footer {
 .contact_info_light li span,
 .contact_info_light li a {
 	color: #fff;
-}
-.contact_info_style2 i + * {
-	font-size: 18px;
 }
 .contact_info > li:last-child {
 	margin-bottom: 0px;
