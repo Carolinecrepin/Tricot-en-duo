@@ -3,7 +3,6 @@
 {% block title %}Cart tricot en duo!{% endblock %}
 
 {% block body %}
-{{ include("partials/title_section.html.twig", { 'name':'Mon panier'})}}
 
 <div class="section">
 	<div class="container">
@@ -31,7 +30,9 @@
                                 <td class="product-quantity" data-title="Quantity"><div class="quantity">
                                 <a href="{{ path('cart_delete' , {'id' : element.product.id})}}"type="button" value="-" class="minus"> - </a>
                                 <input type="text" name="quantity" value="{{element.quantity}}" title="Qty" class="qty" size="4">
+                                {% if element.quantity < element.product.quantity %}
                                 <a href="{{ path('cart_add' , {'id' : element.product.id})}}" type="button" value="+" class="plus"> + </a>
+                                {% endif %}
                               </div></td>
                               	<td class="product-subtotal" data-title="Total">${{element.quantity * element.product.price/100}}</td>
                                 <td class="product-remove" data-title="Remove"><a href="{{path('cart_delete_all', {'id':element.product.id})}}"><i class="ti-close"></i></a></td>
@@ -90,7 +91,7 @@
                         </table>
                     </div>
                     <!-- -->
-                    <a href="#" class="btn btn-fill-out">Procéder au paiement</a>
+                    <a href="{{ path('checkout')}}" class="btn btn-fill-out">Procéder au paiement</a>
                 </div>
             </div>
         </div>

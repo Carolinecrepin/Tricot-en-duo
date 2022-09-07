@@ -20,21 +20,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $id;
 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
+    #[Assert\NotBlank (message : "Votre adresse Email est obligatoire")]
     private $email;
 
     #[ORM\Column(type: 'json')]
     private $roles = [];
 
     #[ORM\Column(type: 'string')]
+    #[Assert\NotBlank (message : "Votre mot de passe est obligatoire")]
     private $password;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank (message : "Votre adresse nom d'utilisateur est obligatoire")]
     private $username;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank (message : "Votre adresse prénom est obligatoire")]
     private $firstname;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank (message : "Votre adresse nom est obligatoire")]
     private $lastname;
 
     #[ORM\Column(type: 'boolean')]
@@ -46,10 +51,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: ReviewsProduct::class)]
     private $reviewsProducts;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Order::class)]
+    private $orders;
+
     public function __construct()
     {
         $this->addresses = new ArrayCollection();
         $this->reviewsProducts = new ArrayCollection();
+        $this->orders = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -67,6 +76,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->email = $email;
 
         return $this;
+    }
+
+    public function getFullName(){
+        return $this->firstname.' '.$this->lastname;
     }
 
     /**
@@ -229,6 +242,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($reviewsProduct->getUser() === $this) {
                 $reviewsProduct->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Order>
+     */
+    public function getOrders(): Collection
+    {
+        return $this->orders;
+    }
+
+    public function addOrder(Order $order): self
+    {
+        if (!$this->orders->contains($order)) {
+            $this->orders[] = $order;
+            $order->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrder(Order $order): self
+    {
+        if ($this->orders->removeElement($order)) {
+            // set the owning side to null (unless already changed)
+            if ($order->getUser() === $this) {
+                $order->setUser(null);
             }
         }
 

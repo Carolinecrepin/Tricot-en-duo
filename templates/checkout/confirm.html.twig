@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Checkout TricotenDuo{% endblock %}
+{% block scriptStripe %}
+    <script src="https://js.stripe.com/v3/"></script>
+{% endblock %}
+{% block body %}
+<div class="section">
+	<div class="container">
+        <div class="row">
+        	<div class="col-md-6">
+                <div class="heading_s1">
+                    <h4>Merci de vérifier votre adresse de livraison</h4>
+                    <div class="content">
+                        {{ address | replace({'[spr]' : '<br>)'}) | raw}}
+                    </div>
+                    <a href="{{ path('app_address_edit', {'id': address.id })}}" class="btn btn-fill-out mt-1"> Modifier l'adresse</a>
+                    <a href="{{ path('checkout')}}" class="btn btn-fill-out mt-1"> Changer d'adresse</a>
+                </div>
+                <div class="heading_s1">
+                    <h4>Merci de vérifier votre transporteur</h4>
+                    <div class="content">
+                        {{ carrier | replace({'[spr]' : '<br>)'}) | raw}}
+                        <a href="{{ path('checkout')}}" class="btn btn-fill-out mt-1"> Changer de transporteur</a>
+                    </div>
+                </div>
+                {% if informations  %}
+                <div class="heading_s1">
+                    <h4>Merci de vérifier vos informations complémentaires</h4>
+                    <div class="form-group mb-0">
+                        {{ informations }}
+                    </div>
+                </div>
+                {% endif %}
+          </div>
+
+          <div class="col-md-6">
+                <div class="order_review">
+                    <div class="heading_s1">
+                        <h4>Your Orders</h4>
+                    </div>
+                    <div class="table-responsive order_table">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for element in cart.products %}
+                                <tr>
+                                    <td><span class="product-qty">{{ element.quantity }}</span> {{ element.product.name }}</td>
+                                    <td>$ {{ element.product.price/100 }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Total HT</th>
+                                    <td class="product-subtotal">${{ cart.data.subTotalHT }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Taxe</th>
+                                    <td class="product-subtotal">${{ cart.data.Taxe }}</td>
+                                </tr>
+                                <tr>
+                                 <th>Frais de livraison ( {{carrier.name}})</th>
+                                    <td class="product-subtotal">${{ carrier.price/100 }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Total TTC</th>
+                                    <td class="product-subtotal">${{ cart.data.subTotalTTC + carrier.price/100 }}</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="payment_method">
+                        <div class="heading_s1">
+                            <h4>Payment</h4>
+                        </div>
+                        <button type="submit" id="checkout-button" class="btn btn-fill-out btn-block">Payer | ${{ cart.data.subTotalTTC + carrier.price/100 }}</button>
+                    </div>
+                </div>
+          </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+    <!--<script src="/assets/js/checkout.js" type="text-javascript"defer></script>-->
+    <script defer>
+            // This is your test publishable API key.
+        var stripe = Stripe("pk_test_51LPktXCSZL0O8yPqrFjiH2kslbkSqIq8U6pXe6t8OySByeVmKe1dUD0exMEf0vQaIuAtfCCyu6GudLFKRrs5bGVs00WmjkvDhc");
+
+        var checkoutButton = document.getElementById("checkout-button");
+
+        checkoutButton.addEventListener("click", function() {
+            fetch('/create-checkout-session/{{ reference }}', {
+                method: "POST",
+            })
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (session) {
+                    return stripe.redirectToCheckout({ sessionId: session.id });
+                })
+                .then(function (result) {
+                    //If redirectToCheckout fails due to a browser or network
+                    //error, you should display the localized error message to your
+                    //customer using error.message.
+                    if (result.error) {
+                        alert(result.error.message);
+                    }
+                })
+                .catch(function (error) {
+                    console.error("Error:", error);
+                });
+        });
+    </script>
+{% endblock %}

@@ -3,8 +3,6 @@
 {% block title %}Mon compte{% endblock %}
 
 {% block body %}
-{{ include("partials/title_section.html.twig", { 'name':'Mon compte'})}}
-
 <div class="section">
     <div class="container">
         <div class="row">
@@ -54,7 +52,8 @@
                             <div class="card-header">
                                 <h3>Orders</h3>
                             </div>
-                            <div class="card-body">
+                            {% if orders %}
+                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead>
@@ -67,30 +66,33 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>#1234</td>
-                                                <td>March 15, 2020</td>
-                                                <td>Processing</td>
-                                                <td>$78.00 for 1 item</td>
-                                                <td><a href="#" class="btn btn-fill-out btn-sm">View</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>#2366</td>
-                                                <td>June 20, 2020</td>
-                                                <td>Completed</td>
-                                                <td>$81.00 for 1 item</td>
-                                                <td><a href="#" class="btn btn-fill-out btn-sm">View</a></td>
-                                            </tr>
+                                        {% for order in orders %}
+                                        <tr>
+                                            <td>{{ order.id }}</td>
+                                            <td>{{ order.createdAt | date('d/m/Y')}}</td>
+                                            <td>Processing</td>
+                                            <td>€{{ order.subTotalTTC/100 }} pour {{ order.quantity }} produit</td>
+                                            <td><a href="{{ path('account_order_details',{'id':order.id})}}" class="btn btn-fill-out btn-sm">View</a></td>
+                                        </tr>
+                                        {% endfor %}
+                                            
+                                            
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
+                                {% for order in orders %}
+                               
+                                {% endfor %}
+                            {% else %}
+                                <div>Désolé {{ app.user.fullName }}, vous n'avez pas encore de commande</div>
+                            {% endif %}
                         </div>
                       </div>
                     <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="address-tab">
                         <div class="row">
                             <div class="col-lg-12">
-                                <a href="{{ path('app_address_new')}}" class="btn btn-fill-out mb-3">Ajouter une nouvelle adresse</a>
+                                <a href="{{ path('address_new')}}" class="btn btn-fill-out mb-3">Ajouter une nouvelle adresse</a>
                             </div>
                         </div>
                         <div class="row">

@@ -95,6 +95,13 @@ class CartServices {
 
             if($product){
                 //produit récupéré avec succès
+                //si la quantité en stock et supérieure a la quantité mise dans le panier on passe a la suite sinon
+
+                if($quantity > $product->getQuantity()){
+                    $quantity = $product->getQuantity();    //on reactualise la quantité qu'il a choisie par la quantité réelle en stock
+                    $cart[$id] = $quantity;
+                    $this->updateCart($cart);
+                }
                 $fullCart['products'] [] =
                 [
                     'quantity' => $quantity,
