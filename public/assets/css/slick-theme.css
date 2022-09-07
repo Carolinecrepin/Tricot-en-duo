@@ -1,6 +1,6 @@
 @charset 'UTF-8';
 /* Slider */
-.slick-loading .slick-list
+.slick-loading 
 {
     background: #fff url('../images/ajax-loader.gif') center center no-repeat;
 }
@@ -114,7 +114,7 @@
 }
 
 /* Dots */
-.slick-dotted.slick-slider
+.slick-dotted
 {
     margin-bottom: 30px;
 }

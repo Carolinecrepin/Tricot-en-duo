@@ -1,3 +1,58 @@
+.banner_section {
+	position: relative;
+}
+.banner_content_wrap {
+	position: relative;
+	z-index: 1;
+}
+.banner_half_content {
+	padding: 100px 0 80px; 
+	z-index: 0;
+}
+.banner_section:not(.full_screen), 
+.banner_section:not(.full_screen) .carousel-item, 
+.banner_section:not(.full_screen) .banner_content_wrap, 
+.banner_section:not(.full_screen) .banner_content_wrap .carousel-item {
+	height: 800px;
+}
+.full_screen, .full_screen .carousel-item {
+	height: 100vh;
+	min-height: 45rem;
+}
+.banner_section.slide_medium, 
+.banner_section.slide_medium .carousel-item, 
+.banner_section.slide_medium .banner_content_wrap, 
+.banner_section.slide_medium .banner_content_wrap .carousel-item,
+.banner_section.shop_el_slider, 
+.banner_section.shop_el_slider .carousel-item, 
+.banner_section.shop_el_slider .banner_content_wrap, 
+.banner_section.shop_el_slider .banner_content_wrap .carousel-item {
+	height: 500px;
+}
+.banner_section.slide_wrap, 
+.banner_section.slide_wrap .carousel-item, 
+.banner_section.slide_wrap .banner_content_wrap, 
+.banner_section.slide_wrap .banner_content_wrap .carousel-item {
+	height: 650px;
+}
+.banner_section .banner_slide_content {
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	-moz-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	z-index: 1;
+}
+.full_screen.banner_half_content {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
 .banner_section.slide_medium,
 .banner_section.slide_medium .carousel-item,
 .banner_section.slide_medium .banner_content_wrap,
@@ -11,4 +66,228 @@
 .light_arrow .carousel-control-next:hover, .light_arrow .carousel-control-prev:hover{
 	background-color: #D3BBB4;
 	color: #fff;
+}
+.carousel-control-next, .carousel-control-prev {
+	background-color: rgba(0,0,0,0.5);
+	font-size: 18px;
+	height: 50px;
+	opacity: 0;
+	top: 50%;
+	-moz-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	width: 50px;
+	transition: all 0.3s ease-in-out;
+}
+.carousel-item img {
+	position: relative;
+	z-index: -1;
+	width: 100%;
+}
+
+.carousel-control-next:focus, .carousel-control-next:hover, .carousel-control-prev:focus, .carousel-control-prev:hover {
+	opacity: 0;
+}
+.carousel:hover .carousel-control-next, .carousel:hover .carousel-control-prev {
+	opacity: 1;
+}
+.carousel-control-next {
+	right: 20px;
+}
+.carousel-control-prev {
+	left: 20px;
+}
+.carousel_style1 .carousel-control-next, .carousel_style1 .carousel-control-prev {
+	border-radius: 100%;
+}
+.carousel_style2 .carousel-control-next, .carousel_style2 .carousel-control-prev {
+	font-size: 16px;
+	border-radius: 4px;
+	height: 40px;
+	width: 40px;
+}
+.light_arrow .carousel-control-next, .light_arrow .carousel-control-prev {
+	background-color:#fff;
+	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	color: #000;
+}
+.indicators_style1,
+.indicators_style2,
+.indicators_style3 {
+	margin-bottom: 15px;
+}
+.indicators_style1 li {
+	width: 10px;
+	height: 10px;
+	background-color: #333;
+	border: 0;
+	margin: 8px;
+	position: relative;
+}
+.indicators_style1 li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	border: 2px solid #333;
+	margin: -4px;
+}
+.indicators_style2 li {
+	background-color: #333;
+	border-radius: 100%;
+	width: 10px;
+	height: 10px;
+	background-clip: inherit;
+	border: 0;
+	margin: 8px;
+	position: relative;
+}
+.indicators_style2 li::before {
+	content: "";
+	position: absolute;
+	border-radius: 100%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	border: 2px solid #333;
+	margin: -4px;
+}
+.indicators_style3 li {
+	background-color: #333;
+	border-radius: 100%;
+	width: 10px;
+	height: 10px;
+	background-clip: inherit;
+	border: 0;
+	margin: 5px;
+	position: relative;
+}
+.indicators_style1 li.active,
+.indicators_style2 li.active {
+	background-color: #E439A1;
+}
+.indicators_style2 li.active:before,
+.indicators_style1 li.active:before {
+	border-color: #E439A1;
+}
+.indicators_style4 li {
+	background-color: #fff;
+	border-radius: 100%;
+	width: 15px;
+	height: 15px;
+	background-clip: inherit;
+	border: 0;
+	margin: 5px;
+	position: relative;
+}
+.banner_content .carousel-item {
+	padding: 100px 0;
+}
+.banner_content h2 {
+	font-size: 60px;
+	margin-bottom: 20px;
+	font-weight: 600;
+	text-transform: capitalize;
+}
+.categories_box {
+	text-align: center;
+}
+.categories_box a {
+	display: block;
+	padding: 35px 20px;
+	background-color: #f7f7f7;
+}
+.categories_box i {
+	font-size: 40px;
+	display: block;
+}
+.categories_box span {
+	text-transform: capitalize;
+	margin-top: 5px;
+	display: block;
+}
+.cat_overlap {
+	position: relative;
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+	padding: 30px;
+	z-index: 1;
+	margin-top: -70px;
+}
+.cat_style1 .categories_box a {
+	background-color: transparent;
+	padding: 0px;
+}
+.carousel_slider li {
+	list-style: none;
+}
+.grid_filter {
+	margin-bottom: 30px;
+}
+.grid_filter li {
+    display: inline-block;
+}
+.grid_filter li a {
+	padding: 5px 15px;
+    display: block;
+	font-size: 16px;
+    text-transform: capitalize;
+}
+.grid_filter li a.current {
+	color: #E439A1;
+}
+.grid_filter.filter_style1 li a {
+	padding: 5px 20px;
+}
+.grid_filter.filter_style1 li a.current {
+	color: #fff;
+	background-color: #E439A1;
+}
+.grid_filter.filter_style2 li a {
+	border-bottom: 1px solid transparent;
+}
+.grid_filter.filter_style2 li a.current {
+	border-bottom-color: #E439A1;
+}
+.grid_container > li {
+	list-style: none;
+}
+.gutter_small {
+    margin: 0 -7.5px 0px -7.5px;
+}
+.gutter_small > li {
+    padding: 0 7.5px 0px 7.5px;
+}
+.gutter_medium {
+    margin: 0 -15px 0px -15px;
+}
+.gutter_medium > li {
+	padding: 0px 15px 0px 15px;
+}
+.gutter_medium > li .portfolio_item,
+.gutter_medium > li .image_gallery_item {
+	margin-bottom: 30px;
+}
+.gutter_small > li .portfolio_item,
+.gutter_small > li .image_gallery_item {
+	margin-bottom: 15px;
+}
+
+.grid_col2 > li {
+	width: 50%;
+	float: left;
+}
+.grid_col3 > li {
+	width: 33.33%;
+	float: left;
+}
+.grid_col4 > li {
+    width: 25%;
+	float: left;
+}
+.loadmore > li {
+	transition: all 0.5s ease-in-out;
 }
