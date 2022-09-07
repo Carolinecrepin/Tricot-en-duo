@@ -12,7 +12,7 @@
                 <div class="heading_s1">
                     <h4>Merci de vérifier votre adresse de livraison</h4>
                     <div class="content">
-                        {{ address | replace({'[spr]' : '<br>)'}) | raw}}
+                        {{ address | replace({'[spr]' : '<br>'}) | raw}}
                     </div>
                     <a href="{{ path('app_address_edit', {'id': address.id })}}" class="btn btn-fill-out mt-1"> Modifier l'adresse</a>
                     <a href="{{ path('checkout')}}" class="btn btn-fill-out mt-1"> Changer d'adresse</a>
@@ -20,7 +20,7 @@
                 <div class="heading_s1">
                     <h4>Merci de vérifier votre transporteur</h4>
                     <div class="content">
-                        {{ carrier | replace({'[spr]' : '<br>)'}) | raw}}
+                        {{ carrier | replace({'[spr]' : '<br>'}) | raw}}
                         <a href="{{ path('checkout')}}" class="btn btn-fill-out mt-1"> Changer de transporteur</a>
                     </div>
                 </div>
@@ -37,13 +37,13 @@
           <div class="col-md-6">
                 <div class="order_review">
                     <div class="heading_s1">
-                        <h4>Your Orders</h4>
+                        <h4>Votre commande</h4>
                     </div>
                     <div class="table-responsive order_table">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Product</th>
+                                    <th>produits</th>
                                     <th>Total</th>
                                 </tr>
                             </thead>
@@ -51,35 +51,35 @@
                                 {% for element in cart.products %}
                                 <tr>
                                     <td><span class="product-qty">{{ element.quantity }}</span> {{ element.product.name }}</td>
-                                    <td>$ {{ element.product.price/100 }}</td>
+                                    <td> {{ element.product.price/100 }} €</td>
                                 </tr>
                                 {% endfor %}
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <th>Total HT</th>
-                                    <td class="product-subtotal">${{ cart.data.subTotalHT }}</td>
+                                    <td class="product-subtotal">{{ cart.data.subTotalHT }} €</td>
                                 </tr>
                                 <tr>
                                     <th>Taxe</th>
-                                    <td class="product-subtotal">${{ cart.data.Taxe }}</td>
+                                    <td class="product-subtotal">{{ cart.data.Taxe }} €</td>
                                 </tr>
                                 <tr>
                                  <th>Frais de livraison ( {{carrier.name}})</th>
-                                    <td class="product-subtotal">${{ carrier.price/100 }}</td>
+                                    <td class="product-subtotal">{{ carrier.price/100 }} €</td>
                                 </tr>
                                 <tr>
                                     <th>Total TTC</th>
-                                    <td class="product-subtotal">${{ cart.data.subTotalTTC + carrier.price/100 }}</td>
+                                    <td class="product-subtotal">{{ cart.data.subTotalTTC + carrier.price/100 }} €</td>
                                 </tr>
                             </tfoot>
                         </table>
                     </div>
                     <div class="payment_method">
                         <div class="heading_s1">
-                            <h4>Payment</h4>
+                            <h4>Paiement</h4>
                         </div>
-                        <button type="submit" id="checkout-button" class="btn btn-fill-out btn-block">Payer | ${{ cart.data.subTotalTTC + carrier.price/100 }}</button>
+                        <button type="submit" id="checkout-button" class="btn btn-fill-out btn-block">Payer | {{ cart.data.subTotalTTC + carrier.price/100 }} €</button>
                     </div>
                 </div>
           </div>

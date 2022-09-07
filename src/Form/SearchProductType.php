@@ -20,9 +20,6 @@ class SearchProductType extends AbstractType
                 'label' =>false,
                 'required' => false,
                 'multiple' => true,
-                'attr' => [
-                    'class' => 'js-categories-multiple'
-                ]
             ])
             ->add('minprice', IntegerType::class, [
                 'required' => false,

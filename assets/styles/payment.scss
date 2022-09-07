@@ -1,0 +1,51 @@
+.form-check{
+    padding:1em;
+    border-bottom:none;
+}
+
+.fas.fa-ban{
+    color:#272727
+}
+
+.order_complete {
+    padding:2em;
+}
+.order_complete i {
+	font-size: 100px;
+	margin-bottom: 20px;
+}
+
+.btn{
+    margin-top:1em;
+}
+/************************ CHECKOUT *************************/
+
+.checkout .content,.checkout #address, #carrier, #informations {
+	margin-top: 23px;
+	border: 5px solid #E439A1;
+	border-radius: 15px;
+	padding: 25px;
+}
+.form-check{
+	border-bottom: 5px solid;
+	margin: 13px;
+}
+ label,#address, #carrier,#informations {
+	font-weight: bolder;
+	color: #444444;
+	font-size: 0.9em
+}
+.checkout div.heading_s1 > div.content .form-check{
+	border-bottom: 2px solid;
+	margin: 10px;
+}
+#checkout_informations{
+	margin-top: 23px;
+	border: 5px solid #EEE4E1;
+	height: 80px;
+	border-radius: 15px;
+}
+#checkout_informations{
+    border-color:black;
+    border:solid 1px;
+}

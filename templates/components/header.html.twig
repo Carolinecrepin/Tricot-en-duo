@@ -1,18 +1,10 @@
-<div class="preloader">
-    <div class="preloader-content">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-</div>
-
 <header class="header_wrap fixed-top header_with_topbar">
-    <!-- barre de navigation de connection et langues-->
+    <!-- barre de navigation-->
     <div class="top-header">
-        <div class="container">
+        <div class="container-right">
             <div class="row align-items-right">
                 <div class="col-md-6">
-                    <div class=" text-right text-md-right">
+                    <div class=" text-right">
                            <ul class="header_list">
                             <!-- condition si l'utilisateur est connecté on affiche se deconnecter et mon compte, s'il ne l'est pas afficher s'inscrire et se connecter -->
                             {% if app.user %}
@@ -20,7 +12,7 @@
                                 <li><a href="{{ path('logout') }}"><i class="fas fa-sign-out-alt"></i><span>Me déconnecter</span></a></li>
                             {% else %}
                                 <li><a href="{{ path('login') }}"><i class="ti-user"></i><span>Se connecter</span></a></li>
-                                <li><a href="{{ path('register') }}"><i class="fa-solid fa-user-plus"></i><span>S'inscrire</span></a></li>
+                                <li><a href="{{ path('register') }}"><i class="fas fa-solid fa-user-plus"></i><span>S'inscrire</span></a></li>
                             {% endif %}
                         </ul>
                     </div>
@@ -29,10 +21,12 @@
         </div>
     </div>
     <div class="bottom_header dark_skin main_menu_uppercase">
-        <div class="container">
+        <div class="container-right">
             <nav class="navbar navbar-expand-lg"> 
                 <a class="navbar-brand" href="{{ path('home')}}">
-                    <img class="logo_light" src="/assets/images/logo-tricot.png" alt="logo" />
+                    <div class="logo">
+                        <img src="/assets/images/logo-tricot.png" width="100" height="100" alt="logo" />
+                    </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false"> 
                     <span class="ion-android-menu"></span>
@@ -52,15 +46,6 @@
                     </ul>
                 </div>
                 <ul class="navbar-nav attr-nav align-items-center">
-                    <li><a href="javascript:void(0);" class="nav-link search_trigger"><i class="linearicons-magnifier"></i></a>
-                        <div class="search_wrap">
-                            <span class="close-search"><i class="ion-ios-close-empty"></i></span>
-                            <form>
-                                <input type="text" placeholder="rechercher" class="form-control" id="search_input">
-                                <button type="submit" class="search_icon"><i class="ion-ios-search-strong"></i></button>
-                            </form>
-                        </div><div class="search_overlay"></div>
-                    </li>
 
                     <!--panier-->
                     <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="#" data-toggle="dropdown"><i class="linearicons-cart"></i><span class="cart_count">
@@ -87,7 +72,7 @@
 
                                  <div class="cart_footer">
                                     <p class="cart_total"><strong>Sous total TTC:</strong> <span class="cart_price"> <span class="price_symbole">$</span></span>{{ app.session.get('cartData').data.subTotalTTC }}</p>
-                                    <p class="cart_buttons"><a href="{{ path('cart') }}" class="btn btn-fill-line rounded-0 view-cart">Voir le panier</a><a href="{{ path('checkout')}}" class="btn btn-fill-out rounded-0 checkout">Checkout</a></p>
+                                    <p class="cart_buttons"><a href="{{ path('cart') }}" class="btn btn-fill-line rounded-0 view-cart">Voir le panier</a><a href="{{ path('checkout')}}" class="btn btn-fill-out rounded-0 checkout">Paiement</a></p>
                                 </div>
 
                             {% else %}

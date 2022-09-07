@@ -1,15 +1,29 @@
-<div class="footer">
-    <div class"mentions">
-        <p>CGU/CGV</p>
-        <P>Mentions Légales</p>
+
+<footer class="footer_dark">
+    <div class="footer_top">
+        <div class="container">
+        <div class="row-container-footer">
+            <!-- mentions -->
+                <div class="mentions">
+                    <a href="{{ path('cgu_conditions')}}" class="row align-items-center">CGU/CGV</a>
+                    <a href="{{ path('legal_notice')}}" class="row align-items-center">Mentions Légales</a>
+                    <a href="{{ path('RGPD')}}" class="row align-items-center"> RGPD </a>
+                </div>
+            <!-- reseaux sociaux -->
+                <div class="social">
+                    <ul class="social_icons social_white">
+                        <li><a href="#"><i class="fa-brands fa-etsy fa-2xl"></i></a></li>
+                        <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                        <li><a href="https://www.instagram.com/tricotenduo"><i class="ion-social-instagram-outline"></i></a></li>
+                    </ul>
+                </div>
+            <!-- contactez-nous -->
+                <div class="contact-us">
+                    <i class=" fas fa-solid fa-envelope fa-2xl"></i>
+                    <p class="contact-us"> Contactez-nous</p>
+                </div>
+            </div>
     </div>
-    <div class="social">
-        <i class="fa-brands fa-instagram fa-2xl"></i>
-        <i class="fa-brands fa-facebook-square fa-2xl"></i>
-        <i class="fa-brands fa-etsy fa-2xl"></i>
-    </div>
-    <div class="contact-us">
-        <p> Contactez-nous</p>
-        <i class="fa-solid fa-envelope fa-xl"></i>
-    </div>
-</div>
+</footer>
+
+<a href="#" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a> 

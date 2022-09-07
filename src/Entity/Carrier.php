@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\CarrierRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CarrierRepository::class)]
@@ -102,7 +103,7 @@ class Carrier
     {
         $result = $this->name."[spr]";
         $result .= $this->description."[spr]";
-        $result .= "Price: $".($this->price/100)."[spr]";
+        $result .= "Prix: ".($this->price/100) ."€"."[spr]";
 
         return $result;
     }

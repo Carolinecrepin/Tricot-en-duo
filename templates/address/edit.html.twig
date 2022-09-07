@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Address{% endblock %}
+{% block title %}Editer votre adresse{% endblock %}
 
 {% block body %}
 
@@ -11,11 +11,11 @@
                     <div class="login_wrap">
                         <div class="padding_eight_all bg-white">
                             <div class="heading_s1">
-                                <h3>Edit Address</h3>
+                                <h3>Editer votre adresse</h3>
                             </div>
                             <div class="content">
-                                {{ include('address/_form.html.twig', {'button_label': 'Update'}) }}
-                                <a class="btn btn-border-fill btn-block mt-2" href="{{ path('account') }}">back to account</a>
+                                {{ include('address/_form.html.twig', {'button_label': 'Enregistrer les modifications'}) }}
+                                <a class="btn btn-border-fill btn-block mt-2" href="{{ path('account') }}">Retour à votre compte</a>
                             </div>               
                         </div>
                     </div>
